@@ -1,0 +1,78 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>인사이트 — upbit-tools</title><style>*{box-sizing:border-box}body{margin:0;background:#0f1115;color:#e6e6e6;font:15px/1.65 -apple-system,Segoe UI,Roboto,"Noto Sans KR",sans-serif;padding:20px}main{max-width:760px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px;padding-top:14px;border-top:1px solid #272b34}a{color:#58a6ff}.sub,.na,small{color:#8b949e}.sub{font-size:13px}table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}th,td{border-bottom:1px solid #272b34;padding:6px 4px;text-align:left;vertical-align:top}th{color:#8b949e;font-weight:500}.r{text-align:right;font-variant-numeric:tabular-nums}.box{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:10px 0}ul.links{list-style:none;padding:0;margin:0}ul.links li{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:8px 0;display:flex;flex-direction:column;gap:2px;font-size:16px}ul.links small{font-size:13px}.src{font-size:12px;color:#8b949e}nav.top{font-size:13px;margin-bottom:12px}@media (max-width:480px){body{padding:12px}}</style></head><body><main>
+<nav class="top"><a href="./">← 대시보드</a> · <a href="community.html">커뮤니티·링크</a></nav>
+<h1>대시보드를 만들며 확인한 것들</h1>
+<p class="sub">확인 시점 2026-10-07. 숫자는 공개 API·공식 문서·보도로 확인한 것이고, 확인 못 한 부분은 그렇다고 적었습니다. 투자 권유가 아닙니다.</p>
+
+<h2>1. 김프는 세 가지로 나눠 봐야 한다</h2>
+<table>
+<tr><th>이름</th><th>계산</th><th>2024-06 ~ 2026-10</th></tr>
+<tr><td><b>김프(환율 기준)</b><br><small>흔히 말하는 김프</small></td><td>업비트 BTC 원화 ÷ (바이낸스 BTC 달러 × 원/달러) − 1</td><td>최고 +8.46% (2025-02-04)<br>최저 −3.71% (2026-06-01)</td></tr>
+<tr><td><b>테더 프리미엄</b></td><td>업비트 USDT 원화 ÷ 원/달러 − 1</td><td>김프와 거의 같이 움직임</td></tr>
+<tr><td><b>테더 기준 김프</b></td><td>업비트 BTC ÷ (바이낸스 BTC × 업비트 USDT) − 1</td><td>대략 ±0.5% 안</td></tr>
+</table>
+<p>(1 + 김프) = (1 + 테더 프리미엄) × (1 + 테더 기준 김프). 월평균으로 보면 김프와 테더 프리미엄의 차이가 0.1%p 안쪽이었습니다.
+<b>한국 쪽 웃돈은 거의 전부 테더 가격에 붙어 있다</b>는 뜻입니다. 그래서 테더를 환율 대신 쓰면 김프가 0 근처로만 보입니다.</p>
+<table>
+<tr><th>월</th><th class="r">김프(환율 기준) 월평균</th></tr>
+<tr><td>2024-06</td><td class="r">+1.89%</td></tr>
+<tr><td>2025-03</td><td class="r">+1.69%</td></tr>
+<tr><td>2025-06</td><td class="r">+1.14%</td></tr>
+<tr><td>2026-03</td><td class="r">−0.58%</td></tr>
+<tr><td>2026-06</td><td class="r">−1.73% (역프)</td></tr>
+<tr><td>2026-10</td><td class="r">+0.89%</td></tr>
+</table>
+<p class="src">일봉 종가 기준. 원/달러 = 하나은행 매매기준율(네이버 금융). 미국 연준(FRED) 환율과 551일을 대조하면 평균 0.10% 차이였고, 환율이 크게 움직인 날은 1%대까지 벌어졌습니다(찍는 시각이 달라서).</p>
+
+<h2>2. 선물 청산가는 거래소보다 '종목'이 더 크게 바꾼다</h2>
+<p>세 거래소 모두 "마진 + 미실현손익 ≤ 유지증거금"이 되는 가격에서 청산합니다. 차이는 유지증거금률(MMR)과 수수료를 식에 넣는 방식입니다.</p>
+<table>
+<tr><th></th><th>ETHUSDT 1구간 MMR</th><th>수수료 반영</th></tr>
+<tr><td>OKX</td><td>0.4%</td><td>청산가 식에 taker 수수료 포함</td></tr>
+<tr><td>바이낸스</td><td>0.4%</td><td>식에 수수료 항목 없음</td></tr>
+<tr><td>바이비트</td><td>0.33%</td><td>유지증거금에 '청산 예상 수수료' 포함</td></tr>
+</table>
+<div class="box">예시 — ETH 0.6개 숏, 평단 2,000, 마진 650 USDT(격리):<br>
+OKX <b>3,069.5</b> · 바이낸스 <b>3,071.0</b> · 바이비트 <b>3,075.4</b> → 거래소 차이는 약 6 USDT.<br>
+같은 OKX 에서 MMR 이 1% 인 종목(예: NEAR 1구간)이면 <b>3,051.3</b> → 종목 차이가 18 USDT 로 더 크다.</div>
+<p>계산기에 ETH 기준 MMR 을 넣고 다른 코인을 계산하면 청산가가 실제보다 멀게(위험한 쪽으로) 나옵니다. 대시보드 계산기는 종목을 넣으면 OKX 공개 API 에서 그 종목의 MMR 구간을 불러옵니다.</p>
+<p class="src">OKX·바이비트 MMR 은 공개 API, 바이낸스는 바이낸스 웹 공개 데이터. 바이낸스 청산가 식은 공식 문서에 이미지로만 있어 변수 정의로 정리했고, 바이비트 청산가 문서 본문은 이 환경에서 열리지 않아 검색 요약을 썼습니다.</p>
+
+<h2>3. 메이커와 테이커 — 즉시 체결되면 비싸다</h2>
+<p>OKX 선물 기본 등급은 메이커 0.02%, 테이커 0.05% 입니다. 호가창에 있는 주문과 <b>바로 체결되면 테이커</b>, 호가에 걸려서 기다렸다 체결되면 메이커입니다.
+숏을 매수 1호가 이하로 던지거나 롱을 매도 1호가 이상으로 사면 테이커가 됩니다. 1,000 USDT 를 열고 닫는 왕복이면 메이커 0.40 vs 테이커 1.00 USDT 입니다.
+나눠서 여러 번 들어가는 매매일수록 차이가 쌓입니다.</p>
+
+<h2>4. 해외 거래소 입출금 — 2027년 초에 규칙이 바뀐다</h2>
+<table>
+<tr><th>시점</th><th>내용</th></tr>
+<tr><td>현재</td><td>바이낸스·바이비트·OKX 모두 FIU(금융정보분석원) 미신고 사업자. 국내 신고 사업자는 27곳.</td></tr>
+<tr><td>2026-01-28</td><td>구글플레이에서 미신고 해외 거래소 앱 퇴출.</td></tr>
+<tr><td>2026-04-09</td><td>업비트, 미신고 해외 사업자와의 거래로 받은 영업 일부정지 처분 취소 소송 1심 승소("규제당국이 구체적 조치 지침을 제시하지 않았다").</td></tr>
+<tr><td>2026-08-11</td><td>특금법 시행령 개정 의결 — 해외 사업자를 위험도로 나눠 저위험은 허용, 그 밖은 <b>보내는 사람과 받는 사람이 같을 때만</b>, 고위험은 금지. 기준은 FIU 고시로 정함(아직 안 나옴).</td></tr>
+<tr><td>2027-02 무렵</td><td>위 조항 시행(공포 후 6개월 — 날짜는 추정).</td></tr>
+</table>
+<p>본인 계정 사이 이동은 계속될 가능성이 높아 보이지만, 특정 거래소가 고위험으로 분류되면 그 거래소만 막힐 수 있습니다(추론). 대시보드는 업비트 공지 중 이런 내용을 골라 알립니다.</p>
+<p>함께 알아둘 것: 해외 거래소 계정도 <b>해외금융계좌 신고 대상</b>입니다(매월 말일 중 하루라도 합계 5억 원 초과 시). 가상자산 과세는 2027-01-01 시행 예정이고(250만 원 공제, 22%), 국회에 유예·폐지 법안이 올라가 있습니다.</p>
+
+<h2>5. 거래대금 백분위는 실제보다 높게 나온다</h2>
+<p>업비트 일봉으로 2017-09 부터 원화 거래대금을 합산하면 지금 상장된 종목만 더하게 됩니다. 상장폐지된 코인이 빠져서 <b>과거일수록 작게</b> 잡히고, 그래서 지금 거래대금의 백분위는 실제보다 높게 나옵니다.
+이 백분위가 이후 수익을 예측하는지는 아직 검증하지 않았습니다.</p>
+
+<h2>출처</h2>
+<p class="src">
+OKX <a href="https://www.okx.com/en-us/help/vii-introduction-to-the-isolated-mode-of-single-multi-currency-portfolio-margin">격리 모드 청산가</a> ·
+<a href="https://www.okx.com/en-us/help/how-to-calculate-the-contract-transaction-fee">선물 수수료</a> ·
+바이낸스 <a href="https://www.binance.com/en/support/faq/how-to-calculate-liquidation-price-of-usd%E2%93%A2-m-futures-contracts-b3c689c1f50a44cabb3a84e663b81d93">USDⓈ-M 청산가</a> ·
+바이비트 <a href="https://www.bybit.com/en/help-center/article/Maintenance-Margin-USDT-Contract">유지증거금</a> ·
+<a href="https://fsc.go.kr/po010101/87177">금융위 미신고 사업자 보도자료</a> ·
+<a href="https://www.lawtimes.co.kr/news/articleView.html?idxno=224785">특금법 시행령 개정(법률신문)</a> ·
+<a href="https://www.mt.co.kr/society/2026/04/09/2026040909223455855">두나무 승소(머니투데이)</a> ·
+<a href="https://v.daum.net/v/20260126141418308">구글플레이 퇴출</a> ·
+<a href="https://www.fnnews.com/news/202609252202588728">가상자산 과세</a> ·
+<a href="https://www.hankyung.com/article/2025060189501">해외금융계좌 신고</a>
+</p>
+
+<h2>댓글</h2>
+<script src="https://giscus.app/client.js" data-repo="hanmaguchi/upbit-dashboard" data-repo-id="R_kgDOS5Vxng" data-category="Announcements" data-category-id="DIC_kwDOS5Vxns4DHQK-" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="ko" crossorigin="anonymous" async></script>
+</main></body></html>
