@@ -1,5 +1,170 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>커뮤니티·링크 — upbit-tools</title><style>*{box-sizing:border-box}body{margin:0;background:#0f1115;color:#e6e6e6;font:15px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",Segoe UI,Roboto,sans-serif;padding:20px}main{max-width:760px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px;padding-top:14px;border-top:1px solid #272b34}a{color:#58a6ff}.sub,.na,small{color:#8b949e}.sub{font-size:13px}table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}th,td{border-bottom:1px solid #272b34;padding:6px 4px;text-align:left;vertical-align:top}th{color:#8b949e;font-weight:500}.r{text-align:right;font-variant-numeric:tabular-nums}.box{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:10px 0}ul.links{list-style:none;padding:0;margin:0}ul.links li{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:8px 0;display:flex;flex-direction:column;gap:2px;font-size:16px}ul.links small{font-size:13px}.src{font-size:12px;color:#8b949e}@media (max-width:480px){body{padding:12px}}header.site{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid #272b34}header.site .brand{font-weight:700;font-size:16px;color:#e6e6e6;text-decoration:none}header.site nav{display:flex;gap:4px;flex-wrap:wrap}header.site nav a{color:#9aa7b4;text-decoration:none;padding:6px 10px;border-radius:8px;font-size:14px}header.site nav a:hover{color:#e6e6e6;background:#1a1d24}header.site nav a[aria-current=page]{color:#e6e6e6;background:#1a1d24;box-shadow:inset 0 0 0 1px #272b34}footer.site{margin-top:32px;padding-top:16px;border-top:1px solid #272b34;color:#8b949e;font-size:12px}footer.site a{color:#8b949e}@media (pointer:coarse){header.site nav a{padding:11px 12px}}</style></head><body><main>
+<title>커뮤니티·링크 — upbit-tools</title><style>*{box-sizing:border-box}body{margin:0;background:#0f1115;color:#e6e6e6;font:15px/1.65 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",Segoe UI,Roboto,sans-serif;padding:20px}main{max-width:760px;margin:0 auto}h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:28px 0 8px;padding-top:14px;border-top:1px solid #272b34}a{color:#58a6ff}.sub,.na,small{color:#8b949e}.sub{font-size:13px}table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0}th,td{border-bottom:1px solid #272b34;padding:6px 4px;text-align:left;vertical-align:top}th{color:#8b949e;font-weight:500}.r{text-align:right;font-variant-numeric:tabular-nums}.box{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:10px 0}ul.links{list-style:none;padding:0;margin:0}ul.links li{background:#1a1d24;border:1px solid #272b34;border-radius:10px;padding:12px 14px;margin:8px 0;display:flex;flex-direction:column;gap:2px;font-size:16px}ul.links small{font-size:13px}.src{font-size:12px;color:#8b949e}@media (max-width:480px){body{padding:12px}}header.site{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid #272b34}header.site .brand{font-weight:700;font-size:16px;color:#e6e6e6;text-decoration:none}header.site nav{display:flex;gap:4px;flex-wrap:wrap}header.site nav a{color:#9aa7b4;text-decoration:none;padding:6px 10px;border-radius:8px;font-size:14px}header.site nav a:hover{color:#e6e6e6;background:#1a1d24}header.site nav a[aria-current=page]{color:#e6e6e6;background:#1a1d24;box-shadow:inset 0 0 0 1px #272b34}footer.site{margin-top:32px;padding-top:16px;border-top:1px solid #272b34;color:#8b949e;font-size:12px}footer.site a{color:#8b949e}@media (pointer:coarse){header.site nav a{padding:11px 12px}}</style><style>/* upbit-tools 테마 레이어 — 생성기가 만든 HTML 위에 얹는다(생성 코드의 <style> 뒤에 로드).
+   원칙: 판단을 먼저, 근거는 아래로 · 숫자는 고정폭 · 색은 의미에만(UI 크롬은 무채색).
+   색 규칙은 생성기와 동일: 초록=상승·정상, 빨강=하락·위험, 주황=주의. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap");
+
+:root{
+  --bg:#0a0d12;--card:#11151c;--card2:#141a22;--line:#1f2630;--line2:#1b212b;
+  --text:#e7eaf0;--muted:#a3adba;--dim:#8a94a2;--link:#8ab4f8;--accent:#e7eaf0;
+  --pos:#3fbf7f;--neg:#f2555a;--warn:#e8b53b;--crit:#ff8a3d;--ok:#5fd3a6;
+  --fs-lg:22px;--fs-xl:30px;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+html{background:var(--bg)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);max-width:1440px;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:3px}
+::selection{background:#2b3a52}
+
+/* 숫자 — 5분마다 바뀌어도 자릿수가 흔들리지 않게 */
+.bv,.big,td.r,th.r,.ts,.strip b,.kpt b,.pgn button,.th-num,.tl-axis,.dur-axis{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+/* ── 사이트 헤더 ── */
+header.site{position:relative;gap:8px 28px;padding:4px 0 14px;margin-bottom:12px;border-bottom:1px solid var(--line2)}
+header.site .brand{color:#fff;font-size:17px;letter-spacing:-.01em}
+header.site nav{gap:18px}
+header.site nav a{padding:6px 0;border-radius:0;background:none!important;box-shadow:none!important;color:var(--muted)}
+header.site nav a:hover{color:#fff}
+header.site nav a[aria-current=page]{color:#fff;font-weight:600;box-shadow:inset 0 -2px 0 #fff!important}
+
+/* ── 제목·상태 줄 ── */
+body>h1{font-size:20px;letter-spacing:-.01em;margin:4px 0 2px}
+body>.sub{font-size:12px;color:var(--dim)}
+.th-live{display:inline-flex;align-items:center;gap:6px;margin-right:8px;padding:2px 9px;border-radius:999px;
+  background:#10231d;border:1px solid #1c3a30;color:var(--ok);font-size:11px;font-weight:600;vertical-align:1px}
+.th-live::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.th-live.stale{background:#2a1a10;border-color:#4a2c16;color:var(--crit)}
+
+/* ── 거시 지표 줄: 흐르는 티커 → 고정 셀 ── */
+.strip{border-radius:14px;background:var(--card);border-color:var(--line);cursor:default}
+.strip.th-static .track{animation:none!important;display:flex;flex-wrap:wrap;padding:0;white-space:normal;width:100%}
+.strip.th-static .track>span{display:contents;padding:0}
+.strip .th-cell{flex:1 1 150px;padding:10px 16px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);
+  color:var(--muted);font-size:12px;line-height:1.55;margin:0 -1px -1px 0}
+.strip .th-cell b{display:block;font-size:15px;font-weight:600;color:var(--text)}
+@media (max-width:640px){
+  .strip.th-static .track{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .strip .th-cell{flex:0 0 auto;border-bottom:0}
+}
+
+/* ── 탭: 파란 알약 → 밑줄 (파랑은 정보색이지 '선택'색이 아니다) ── */
+.tabs{gap:24px;border-bottom:1px solid var(--line2);padding:0;margin-bottom:20px;background:rgba(10,13,18,.92);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.tabs button{background:none;border:0;border-radius:0;padding:12px 2px;color:var(--muted);font-family:inherit;
+  box-shadow:inset 0 -2px 0 transparent;transition:color .15s,box-shadow .15s}
+.tabs button:hover{color:#fff}
+.tabs button.on{background:none;color:#fff;font-weight:600;box-shadow:inset 0 -2px 0 #fff;border:0}
+
+/* ── 상단 밴드: BTC 를 주인공으로 ── */
+.band{gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr))}
+.bt{border-radius:14px;padding:16px 18px;background:var(--card);border-color:var(--line)}
+.bl{color:var(--dim);letter-spacing:.02em}
+.bv{font-size:26px}
+.bs{color:var(--muted)}
+.spk{height:34px;stroke:#c9d6e8}
+@media (min-width:900px){
+  .band{grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,1fr))}
+  .band>.bt:first-child{grid-row:span 2;padding:22px 24px}
+  .band>.bt:first-child .bv{font-size:44px;line-height:1.1;margin:4px 0}
+  .band>.bt:first-child .bs{font-size:14px}
+  .band>.bt:first-child .spk{height:120px;stroke-width:2}
+}
+.band>.bt.th-judge{background:var(--card2)}
+.band>.bt.th-judge .bv{font-size:20px;overflow:visible}
+@media (max-width:899px){.band{grid-template-columns:repeat(2,minmax(0,1fr))}.band>.bt:first-child{grid-column:1/-1}.band>.bt:first-child .spk{height:64px}}
+.th-badge{display:inline-block;padding:2px 10px;border-radius:6px;font-family:var(--mono);font-size:.82em;font-weight:600;color:#0a0d12;vertical-align:.08em}
+.th-bull-highvol{background:#3fbf7f}.th-bull-lowvol{background:#9fe2bf}
+.th-bear-highvol{background:#f2555a}.th-bear-lowvol{background:#f7a8ab}
+
+/* ── 카드 ── */
+.grid{gap:16px;grid-auto-flow:row dense} /* 넓은 카드 뒤에 생기는 빈 칸을 뒤 카드로 채운다 */
+.card{background:var(--card);border-color:var(--line);border-radius:14px;padding:20px}
+.card h2{font-size:15px;letter-spacing:-.005em;margin-bottom:14px}
+.card h2 .tt .ic{color:var(--dim)}
+.card h3{color:var(--text);font-size:14px}
+.kv{color:#b8c1cc;line-height:1.6}
+.hint{color:var(--dim)}
+.big{font-size:30px}
+.ts{color:var(--dim)}
+details>summary{color:var(--muted);padding:6px 0}
+details>summary:hover{color:var(--text)}
+
+/* 표 (대시보드 카드 안만 — 보조 페이지 표는 원래 모양 유지) */
+.card table{font-size:13px;background:linear-gradient(90deg,var(--card) 30%,transparent) left/24px 100%,
+  linear-gradient(270deg,var(--card) 30%,transparent) right/24px 100%,
+  radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.7),transparent) left/12px 100%,
+  radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.7),transparent) right/12px 100%;
+  background-repeat:no-repeat;background-attachment:local,local,scroll,scroll}
+.card th{color:var(--dim);font-size:12px;font-weight:500;padding:8px 8px;border-bottom:1px solid var(--line)}
+.card td{padding:9px 8px;border-bottom:1px solid var(--line2)}
+.card th:first-child,.card td:first-child{background:var(--card)}
+.card tbody tr:hover td{background:#161c25}
+body>main th{color:var(--dim)}body>main th,body>main td{border-bottom-color:var(--line2)}
+
+/* 버튼·입력 */
+.fb,.pgn button{border-color:#2a3340;color:#c9d1dc;border-radius:8px;font-family:inherit}
+.fb:hover,.pgn button:hover:not(:disabled){border-color:#5a6575;color:#fff}
+.pgn button.on{background:#e7eaf0;border-color:#e7eaf0;color:#0a0d12}
+.pcf input,.pcf select,.pcf textarea{background:#0e1218;border-color:#2a3340;border-radius:8px;font-family:var(--mono)}
+.pcf input:focus,.pcf select:focus,.pcf textarea:focus{outline:2px solid var(--link);outline-offset:1px;border-color:transparent}
+.kpt{background:#0e1218;border-color:var(--line);border-radius:10px}
+#newbar{background:#e7eaf0;color:#0a0d12;font-weight:600;font-family:inherit}
+.stalebar{border-radius:10px}
+
+/* ── 오늘 볼 것: 심각도 순 목록 ── */
+.th-sev{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 6px;font-size:12px}
+.th-sev span{padding:1px 9px;border-radius:999px;border:1px solid}
+.th-sev .s-crit{background:var(--crit);border-color:var(--crit);color:#0a0d12;font-weight:600}
+.th-sev .s-warn{color:var(--warn)}
+.th-sev .s-info{color:var(--muted);border-color:#3a4452}
+.th-sev .s-ok{color:var(--ok);border-color:#1c3a30}
+.card.th-today .kv{display:flex;align-items:baseline;gap:10px;margin:0;padding:11px 0;border-top:1px solid var(--line2);font-size:14px}
+.card.th-today .kv>.th-body{flex:1;min-width:0}
+.card.th-today .kv::after{margin-left:auto;padding-left:8px;font-size:11px;white-space:nowrap}
+.card.th-today .kv.s-crit::after{content:"긴급";color:var(--crit);font-weight:600}
+.card.th-today .kv.s-warn::after{content:"주의";color:var(--warn)}
+.card.th-today .kv.s-info::after{content:"참고";color:var(--dim)}
+.card.th-today .kv.s-ok::after{content:"정상";color:var(--ok)}
+.card.th-today .kv.s-crit .neg{color:var(--crit)}
+
+/* ── 국면 타임라인·지속 분포 ── */
+.th-tl{margin:6px 0 14px}
+.th-tl .lbl{font-size:12px;color:var(--dim);margin-bottom:6px}
+.th-tl .bar{display:flex;gap:2px;height:32px;border-radius:8px;overflow:hidden}
+.th-tl .seg{min-width:3px;display:flex;align-items:center;padding:0 7px;overflow:hidden;white-space:nowrap;
+  font:600 11px var(--mono);color:#0a0d12}
+.th-tl .seg.now{box-shadow:inset 0 0 0 2px #fff}
+.tl-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-top:4px}
+.th-tl .lg{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font-size:12px;color:var(--muted)}
+.th-tl .lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.th-dur{margin:4px 0 14px}
+.th-dur .track{position:relative;height:34px}
+.th-dur .track>*{position:absolute}
+.th-dur .base{left:0;right:0;top:16px;height:2px;background:#2a3340}
+.th-dur .iqr{top:9px;height:16px;background:#2a3340;border-radius:3px}
+.th-dur .med{top:6px;width:2px;height:22px;background:#b4bdc9}
+.th-dur .now{top:0;width:3px;height:34px;border-radius:2px;background:var(--text)}
+.th-dur .max{right:0;top:11px;width:2px;height:12px;background:#5a6575}
+.dur-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-top:4px}
+.th-split{display:flex;gap:2px;height:14px;border-radius:4px;overflow:hidden;margin:8px 0 4px}
+
+/* ── 보조 페이지(인사이트·커뮤니티) ── */
+body>main{max-width:800px}
+main>h1{font-size:26px;letter-spacing:-.015em}
+main>h2{font-size:18px;border-top-color:var(--line2)}
+.box,ul.links li{background:var(--card);border-color:var(--line);border-radius:12px}
+ul.links li{padding:14px 16px}
+ul.links li:hover{border-color:#2f3946}
+footer.site{border-top-color:var(--line2);color:var(--dim)}
+
+@media (max-width:480px){
+  .tabs{gap:18px}
+  .bv{font-size:22px}
+  .card{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){.tabs button{transition:none}}
+</style></head><body><main>
 <header class="site"><a class="brand" href="./">upbit-tools</a><nav><a href="./">대시보드</a><a href="insights.html">인사이트</a><a href="community.html" aria-current="page">커뮤니티·링크</a></nav></header>
 <h1>커뮤니티·링크</h1>
 <p class="sub">대시보드를 보는 분들이 이야기하고 자료를 모아두는 곳입니다.</p>
@@ -12,4 +177,188 @@
 </ul></div>
 <h2>이 페이지에 댓글</h2>
 <script src="https://giscus.app/client.js" data-repo="hanmaguchi/upbit-dashboard" data-repo-id="R_kgDOS5Vxng" data-category="Announcements" data-category-id="DIC_kwDOS5Vxns4DHQK-" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="ko" crossorigin="anonymous" async></script>
-<footer class="site">upbit-tools · 개인이 만든 관측용 대시보드 · 투자 권유가 아닙니다 · <a href="community.html">의견 남기기</a></footer></main></body></html>
+<footer class="site">upbit-tools · 개인이 만든 관측용 대시보드 · 투자 권유가 아닙니다 · <a href="community.html">의견 남기기</a></footer></main><script>/* upbit-tools 테마 레이어 — 생성기 HTML 을 읽어 표시만 다듬는다(데이터는 건드리지 않음).
+   각 단계는 독립적으로 실패해도 원래 화면이 그대로 남도록 try 로 감싼다. */
+(function () {
+  'use strict';
+  // 상단 띠를 고정 셀로 바꿀지 — 사용자 결정(2026-10-08)으로 흐르는 띠 유지. true 면 2) 단계 적용.
+  var STATIC_STRIP = false;
+  var REG = /(bull|bear)-(high|low)vol/;
+  var REG_COLOR = {
+    'bull-highvol': '#3fbf7f', 'bull-lowvol': '#9fe2bf',
+    'bear-highvol': '#f2555a', 'bear-lowvol': '#f7a8ab'
+  };
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function cardByTitle(t) {
+    var hs = document.querySelectorAll('.card h2');
+    for (var i = 0; i < hs.length; i++) if (hs[i].textContent.indexOf(t) >= 0) return hs[i].closest('.card');
+    return null;
+  }
+  function run(name, fn) { try { fn(); } catch (e) { if (window.console) console.warn('[theme] ' + name, e); } }
+
+  // 1) 상태 배지: 생성 시각 기준 15분 넘으면 '지연'
+  run('live', function () {
+    var sub = document.querySelector('body > .sub'), st = document.getElementById('stale');
+    if (!sub || !st) return;
+    var gen = parseInt(st.dataset.gen, 10), pill = el('span', 'th-live');
+    function tick() {
+      var stale = Date.now() - gen > 15 * 60000;
+      pill.textContent = stale ? '갱신 지연' : '실시간';
+      pill.classList.toggle('stale', stale);
+    }
+    sub.insertBefore(pill, sub.firstChild);
+    tick(); setInterval(tick, 60000);
+  });
+
+  // 2) 흐르는 티커 → 고정 지표 셀
+  run('strip', function () {
+    if (!STATIC_STRIP) return;
+    var strip = document.querySelector('.strip'), track = strip && strip.querySelector('.track');
+    if (!track || !track.children.length) return;
+    var first = track.children[0];
+    while (track.children.length > 1) track.removeChild(track.lastElementChild);
+    var parts = first.innerHTML.split(' · '), frag = document.createDocumentFragment();
+    parts.forEach(function (h) {
+      if (!h.trim()) return;
+      var c = el('span', 'th-cell'); c.innerHTML = h.trim(); frag.appendChild(c);
+    });
+    first.innerHTML = ''; first.appendChild(frag);
+    strip.removeAttribute('onclick'); strip.removeAttribute('title');
+    strip.classList.add('th-static');
+  });
+
+  // 3) 국면 타일 → 판단 타일(배지)
+  run('band', function () {
+    document.querySelectorAll('.band > .bt').forEach(function (bt) {
+      var bl = bt.querySelector('.bl'), bv = bt.querySelector('.bv');
+      if (!bl || !bv || bl.textContent.trim() !== '국면') return;
+      var m = bv.textContent.match(REG); if (!m) return;
+      bt.classList.add('th-judge');
+      var b = el('span', 'th-badge th-' + m[0], m[0]);
+      bv.textContent = ''; bv.appendChild(b);
+    });
+  });
+
+  // 4) 오늘 볼 것 — 심각도 순 정렬 + 요약 칩
+  run('today', function () {
+    var card = cardByTitle('오늘 볼 것'); if (!card) return;
+    var rows = Array.prototype.slice.call(card.querySelectorAll(':scope > .kv'));
+    if (!rows.length) return;
+    var ORDER = { 's-crit': 0, 's-warn': 1, 's-info': 2, 's-ok': 3 }, n = { 's-crit': 0, 's-warn': 0, 's-info': 0, 's-ok': 0 };
+    rows.forEach(function (r) {
+      var s = r.querySelector('.neg') ? 's-crit' : r.querySelector('.warn') ? 's-warn' : r.querySelector('.pos') ? 's-ok' : 's-info';
+      r.classList.add(s); r.dataset.sev = ORDER[s]; n[s]++;
+      var body = el('span', 'th-body'); // 텍스트 노드가 flex 항목으로 쪼개지지 않게 한 덩어리로
+      while (r.firstChild) body.appendChild(r.firstChild);
+      r.appendChild(body);
+    });
+    rows.sort(function (a, b) { return a.dataset.sev - b.dataset.sev; })
+      .forEach(function (r) { card.appendChild(r); });
+    var chips = el('div', 'th-sev'), L = { 's-crit': '긴급', 's-warn': '주의', 's-info': '참고', 's-ok': '정상' };
+    Object.keys(L).forEach(function (k) { if (n[k]) chips.appendChild(el('span', k, L[k] + ' ' + n[k])); });
+    card.querySelector('h2').after(chips);
+    card.classList.add('th-today');
+  });
+
+  // 5) 국면·변곡 — 전이 기록을 타임라인으로, 지속 분포·다음 국면을 막대로
+  run('regime', function () {
+    var card = cardByTitle('국면·변곡'); if (!card) return;
+    var kvs = Array.prototype.slice.call(card.querySelectorAll(':scope > .kv'));
+    var table = card.querySelector(':scope > table');
+
+    if (table) {
+      var segs = [];
+      table.querySelectorAll('tr').forEach(function (tr) {
+        var td = tr.querySelectorAll('td'); if (td.length < 3) return;
+        var m = td[0].textContent.match(REG), d = parseInt(td[2].textContent, 10);
+        var rng = td[1].textContent.trim().split(/\s*~\s*/);
+        if (m && d > 0) segs.push({ r: m[0], d: d, from: rng[0], to: rng[1] });
+      });
+      segs.reverse(); // 표는 최신이 위
+      if (segs.length) {
+        var tot = segs.reduce(function (s, x) { return s + x.d; }, 0);
+        var wrap = el('div', 'th-tl');
+        wrap.appendChild(el('div', 'lbl', '국면 타임라인 · ' + segs[0].from + ' ~ 현재'));
+        var bar = el('div', 'bar'); bar.setAttribute('role', 'img');
+        bar.setAttribute('aria-label', segs.map(function (s) { return s.r + ' ' + s.d + '일'; }).join(', '));
+        segs.forEach(function (s, i) {
+          var g = el('div', 'seg' + (i === segs.length - 1 ? ' now' : ''));
+          g.style.flex = s.d + ' 1 0'; g.style.background = REG_COLOR[s.r];
+          g.title = s.r + ' · ' + s.from + ' ~ ' + s.to + ' · ' + s.d + '일';
+          var share = s.d / tot;
+          if (share > 0.22) g.textContent = s.r + ' ' + s.d + '일';
+          else if (share > 0.06) g.textContent = s.d + '일';
+          bar.appendChild(g);
+        });
+        wrap.appendChild(bar);
+        var ax = el('div', 'tl-axis');
+        ax.appendChild(el('span', null, segs[0].from.slice(5)));
+        if (segs.length > 2) ax.appendChild(el('span', null, segs[Math.floor(segs.length / 2)].from.slice(5)));
+        ax.appendChild(el('span', null, '진행 중'));
+        wrap.appendChild(ax);
+        var lg = el('div', 'lg');
+        Object.keys(REG_COLOR).forEach(function (k) {
+          var s = el('span'), i = el('i'); i.style.background = REG_COLOR[k];
+          s.appendChild(i); s.appendChild(document.createTextNode(k)); lg.appendChild(s);
+        });
+        wrap.appendChild(lg);
+
+        var head = kvs.filter(function (k) { return k.textContent.trim() === '전이 기록'; })[0];
+        var det = el('details'), sm = el('summary', null, '전이 기록 표 (' + segs.length + '건)');
+        det.appendChild(sm);
+        table.parentNode.insertBefore(wrap, head || table);
+        table.parentNode.insertBefore(det, table);
+        det.appendChild(table);
+        if (head) head.remove();
+      }
+    }
+
+    // 지속 분포: "중앙 25일 · 사분위 20~37일 · 최대 142일" + 상단 "N일째"
+    var dk = kvs.filter(function (k) { return /중앙\s*\d+일/.test(k.textContent); })[0];
+    var nowK = kvs.filter(function (k) { return /(\d+)일째/.test(k.textContent); })[0];
+    if (dk && nowK) {
+      var t = dk.textContent, med = +t.match(/중앙\s*(\d+)/)[1], q = t.match(/사분위\s*(\d+)\s*~\s*(\d+)/),
+        mx = +(t.match(/최대\s*(\d+)/) || [0, 0])[1], now = +nowK.textContent.match(/(\d+)일째/)[1];
+      if (q && mx) {
+        var top = Math.max(mx, now), pct = function (v) { return (v / top * 100).toFixed(1) + '%'; };
+        var box = el('div', 'th-dur'), tr = el('div', 'track');
+        tr.setAttribute('role', 'img');
+        tr.setAttribute('aria-label', '지속 기간 분포: 중앙 ' + med + '일, 사분위 ' + q[1] + '~' + q[2] + '일, 최대 ' + mx + '일, 지금 ' + now + '일');
+        var base = el('div', 'base'), iqr = el('div', 'iqr'), md = el('div', 'med'), nw = el('div', 'now'), mxe = el('div', 'max');
+        iqr.style.left = pct(+q[1]); iqr.style.width = pct(q[2] - q[1]);
+        md.style.left = pct(med); nw.style.left = 'calc(' + pct(now) + ' - 1.5px)';
+        [base, iqr, md, mxe, nw].forEach(function (x) { tr.appendChild(x); });
+        box.appendChild(tr);
+        var ax = el('div', 'dur-axis');
+        ax.appendChild(el('span', null, '0'));
+        ax.appendChild(el('span', null, '지금 ' + now + '일 · 중앙 ' + med + ' · IQR ' + q[1] + '–' + q[2]));
+        ax.appendChild(el('span', null, '최대 ' + mx + '일'));
+        box.appendChild(ax);
+        dk.after(box);
+      }
+    }
+
+    // 다음 국면 빈도: "→ bull-lowvol 76%(13/17) · bear-highvol 24%(4/17)"
+    var nk = kvs.filter(function (k) { return /다음 국면/.test(k.textContent); })[0];
+    if (nk) {
+      var re = /((?:bull|bear)-(?:high|low)vol)\s*(\d+)%/g, m2, parts = [];
+      while ((m2 = re.exec(nk.textContent))) parts.push({ r: m2[1], p: +m2[2] });
+      if (parts.length) {
+        var sp = el('div', 'th-split'); sp.setAttribute('role', 'img');
+        sp.setAttribute('aria-label', parts.map(function (x) { return x.r + ' ' + x.p + '%'; }).join(', '));
+        parts.forEach(function (x) {
+          var g = el('div'); g.style.flex = x.p + ' 1 0'; g.style.background = REG_COLOR[x.r]; g.title = x.r + ' ' + x.p + '%';
+          sp.appendChild(g);
+        });
+        nk.after(sp);
+      }
+    }
+  });
+})();
+</script></body></html>
