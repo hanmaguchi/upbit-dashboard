@@ -96,8 +96,9 @@ details>summary:hover{color:var(--text)}
   radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.7),transparent) left/12px 100%,
   radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.7),transparent) right/12px 100%;
   background-repeat:no-repeat;background-attachment:local,local,scroll,scroll}
-.card th{color:var(--dim);font-size:12px;font-weight:500;padding:8px 8px;border-bottom:1px solid var(--line)}
-.card td{padding:9px 8px;border-bottom:1px solid var(--line2)}
+.card th{color:var(--dim);font-size:12px;font-weight:500;padding:8px 6px;border-bottom:1px solid var(--line)}
+.card td{padding:9px 6px;border-bottom:1px solid var(--line2)}
+.card th:first-child,.card td:first-child{padding-left:0}.card th:last-child,.card td:last-child{padding-right:0} /* 가로 여백 절약 — 스크롤 줄이기 */
 .card th:first-child,.card td:first-child{background:var(--card)}
 .card tbody tr:hover td{background:#161c25}
 body>main th{color:var(--dim)}body>main th,body>main td{border-bottom-color:var(--line2)}
