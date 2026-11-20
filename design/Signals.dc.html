@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>신호 로그·검증</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#0b0e13}
+a{color:#8ab4f8}a:hover{color:#c3d8fb}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #0b0e13; color: #e6e9ef; font-family: 'IBM Plex Sans KR', system-ui, sans-serif; font-size: 13px; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: stretch">
+
+<aside style="flex: 1 1 220px; max-width: 100%; box-sizing: border-box; background: #0f1319; border-right: 1px solid #222934; padding: 20px 16px; display: flex; flex-direction: column; gap: 22px">
+<a href="#" style="color: #e6e9ef; text-decoration: none; font: 700 16px 'JetBrains Mono', monospace; letter-spacing: -0.02em; padding: 0 8px">upbit-tools</a>
+<nav aria-label="대시보드 구획" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">대시보드</div>
+<a href="Console.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">지금 시장</a>
+<a href="Positions.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">포지션·전략</a>
+<a href="Sprout.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">발아 감시</a>
+<a href="Signals.dc.html" aria-current="page" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; background: #1b212b; color: #ffffff; font-weight: 600; text-decoration: none">신호 로그·검증</a>
+<a href="Research.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">리서치</a>
+<a href="Futures.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">선물 지표</a>
+<a href="Calculator.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">계산기</a>
+</nav>
+<nav aria-label="사이트" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">다른 페이지</div>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">청산맵</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">인사이트</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">커뮤니티·링크</a>
+</nav>
+<div style="margin-top: auto; border: 1px solid #222934; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #a3adba">
+<span style="display: inline-flex; align-items: center; gap: 6px; color: #5fd3a6; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 50%; background: #5fd3a6"></span>실시간</span>
+<span style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">2026-11-19 01:45 KST</span>
+<span>5분마다 갱신 · 포트폴리오 비공개</span>
+</div>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 12px">
+
+<section aria-labelledby="verdict" style="padding: 0 4px; display: flex; flex-direction: column; gap: 6px">
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3; letter-spacing: 0.04em">신호 로그·검증 · 11-19 01:45 KST</div>
+<h1 id="verdict" style="margin: 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; max-width: 32em; text-wrap: balance">성적표에서 '유지' 판정을 받은 신호는 <span style="color: #f2555a">0개</span>. 알림은 많지만 아직 믿을 신호가 없다.</h1>
+<p style="margin: 0; font-size: 13px; color: #a3adba">QUANT_REVIEW 11-09 · 관찰 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">9</b> · 폐기검토 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">6</b> · 90일 알림 11,684건 중 표본 20 이상에서 적중률 55%를 넘은 칸 없음(최고 투매 반등 +10m 54%)</p>
+</section>
+
+<section aria-label="판정 근거" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: #222934; border: 1px solid #222934; border-radius: 12px; overflow: hidden">
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">신호 성적표</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">0 · 9 · 6</div>
+<div role="img" aria-label="유지 0, 관찰 9, 폐기검토 6" style="display: flex; gap: 2px; height: 8px; border-radius: 3px; overflow: hidden"><div style="flex: 9 1 0; background: #a3adba"></div><div style="flex: 6 1 0; background: #f2555a"></div></div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">유지 · 관찰 · 폐기검토</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">최근 1시간 알림</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">8건</div>
+<div style="font-size: 12px; color: #a3adba">투매 7 · 급변 1 · BTC 투매 포함</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">마지막 01:30 PONS</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">시장 경고 · 14일</div>
+<div style="font-size: 20px; font-weight: 700; color: #f2555a">▼ 하락 경고</div>
+<div style="font-size: 12px; color: #a3adba">하락 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">70%</b> · 중앙z −1.2</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">11-19 01:20 · 소형주 과열 6종목</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">돌파 · 최고 점수</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">MMT 5/5</div>
+<div style="font-size: 12px; color: #a3adba">알림 뒤 <b style="font-family: 'JetBrains Mono', monospace; color: #3fbf7f">+104.3%</b> · 일봉 104x</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #e8b53b">돌파 신호 자체는 폐기검토</div>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
+<section aria-labelledby="card" style="flex: 3 1 520px; min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px"><h2 id="card" style="margin: 0; font-size: 14px; font-weight: 700">신호 성적표</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">2026-07-30 ~ 11-09 · 비용 차감</span></div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 13px">
+<thead><tr style="color: #8592a3; font-size: 11px; text-align: left"><th style="font-weight: 500; padding: 8px 0; border-bottom: 1px solid #222934">신호</th><th style="font-weight: 500; padding: 8px 0; border-bottom: 1px solid #222934">판정</th><th style="font-weight: 500; padding: 8px 0; border-bottom: 1px solid #222934">보유</th><th style="font-weight: 500; padding: 8px 0; text-align: right; border-bottom: 1px solid #222934">지수 대비</th><th style="font-weight: 500; padding: 8px 0; text-align: right; border-bottom: 1px solid #222934">순수익</th><th style="font-weight: 500; padding: 8px 0; text-align: right; border-bottom: 1px solid #222934">건수</th></tr></thead>
+<tbody>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">거래량 급증</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">1일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−1.0%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−1.0%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">6,004</td></tr>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">투매(급락+거래량)</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">1일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−0.8%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−0.6%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">4,141</td></tr>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">돌파</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">7일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−3.8%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−1.9%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">1,186</td></tr>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">돌파 스캔</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">7일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−3.4%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−0.5%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">514</td></tr>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">상대강도 상위</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">7일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−2.7%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #3fbf7f">+0.3%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">136</td></tr>
+<tr><td style="padding: 9px 12px 9px 0; border-bottom: 1px solid #1b212b">수렴 돌파 4시간</td><td style="border-bottom: 1px solid #1b212b"><span style="border: 1px solid #f2555a; color: #f2555a; border-radius: 6px; padding: 0 6px; font-size: 11px">폐기검토</span></td><td style="border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #a3adba">3일</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−2.4%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace; color: #f2555a">−0.5%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; font-family: 'JetBrains Mono', monospace">42</td></tr>
+<tr><td style="padding: 9px 12px 9px 0">일봉 정배열 전환</td><td><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">관찰</span></td><td style="font-family: 'JetBrains Mono', monospace; color: #a3adba">7일</td><td style="text-align: right; font-family: 'JetBrains Mono', monospace; color: #f2555a">−0.9%</td><td style="text-align: right; font-family: 'JetBrains Mono', monospace; color: #3fbf7f">+6.1%</td><td style="text-align: right; font-family: 'JetBrains Mono', monospace">139</td></tr>
+</tbody>
+</table>
+</div>
+<button type="button" style="align-self: flex-start; min-height: 32px; padding: 0 12px; border: 1px solid #5f6b7c; background: transparent; color: #e6e9ef; border-radius: 8px; font-size: 12px">관찰 신호 8개 더 보기</button>
+</section>
+
+<section aria-labelledby="feed" style="flex: 2 1 340px; min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="feed" style="margin: 0; font-size: 14px; font-weight: 700">최근 알림</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">11-19 01:30</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">01:30</span><span><b>PONS</b> <span style="color: #a3adba">투매 · z 6.9 · −2.0%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #a3adba">+0.0%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">01:20</span><span><b>BTC</b> <span style="color: #a3adba">투매 · z 9.9 · −0.6%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #f2555a">−0.1%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">01:20</span><span><b>AVAX</b> <span style="color: #a3adba">투매 · z 18.1 · −1.1%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #3fbf7f">+0.1%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">00:50</span><span><b>NCT</b> <span style="color: #a3adba">급변 · z 11.2 · +4.5%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #f2555a">−1.7%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">00:50</span><span><b>LINK</b> <span style="color: #a3adba">투매 · z 7.1 · −0.8%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #f2555a">−0.6%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">00:50</span><span><b>NEAR</b> <span style="color: #a3adba">투매 · z 10.9 · −1.6%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #f2555a">−0.3%</span></div>
+<div style="display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 2px 10px; align-items: baseline; padding: 9px 0; border-top: 1px solid #1b212b"><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">00:50</span><span><b>FIL</b> <span style="color: #a3adba">투매 · z 11.3 · −1.0%</span></span><span style="font: 12px 'JetBrains Mono', monospace; color: #f2555a">−0.6%</span></div>
+<div style="font-size: 11px; color: #8592a3; padding-top: 6px">z = 평소 대비 거래량 이상치 · 끝 숫자 = 알림 뒤 누적 변화</div>
+</section>
+</div>
+
+<section aria-labelledby="react" style="background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px"><h2 id="react" style="margin: 0; font-size: 14px; font-weight: 700">단기 반응 · 90일</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">알림 11,684건 · 수수료 미반영</span></div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: separate; border-spacing: 4px; white-space: nowrap; font-size: 12px">
+<thead><tr style="color: #8592a3; font-size: 11px; text-align: left"><th style="font-weight: 500; padding: 4px 0">신호</th><th style="font-weight: 500; padding: 4px 8px">+10분</th><th style="font-weight: 500; padding: 4px 8px">+4시간</th><th style="font-weight: 500; padding: 4px 8px">+1일</th></tr></thead>
+<tbody style="font-family: 'JetBrains Mono', monospace">
+<tr><td style="font-family: 'IBM Plex Sans KR', sans-serif; padding-right: 8px">투매 반등</td><td style="background: #1b212b; border-radius: 6px; padding: 8px">+0.1% · <b>54%</b> <span style="color: #8592a3">4,197</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px">+0.0% · <b>48%</b> <span style="color: #8592a3">3,956</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px">−0.4% · <b>45%</b> <span style="color: #8592a3">4,197</span></td></tr>
+<tr><td style="font-family: 'IBM Plex Sans KR', sans-serif; padding-right: 8px">브레이크아웃</td><td style="background: #2a1a1b; border-radius: 6px; padding: 8px">−0.1% · <b style="color: #f2555a">41%</b> <span style="color: #8592a3">1,072</span></td><td style="background: #2a1a1b; border-radius: 6px; padding: 8px">−1.2% · <b style="color: #f2555a">35%</b> <span style="color: #8592a3">1,053</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px; color: #8592a3">—</td></tr>
+<tr><td style="font-family: 'IBM Plex Sans KR', sans-serif; padding-right: 8px">브레이크다운</td><td style="background: #1b212b; border-radius: 6px; padding: 8px; color: #a3adba">+0.2% · 60% <span style="color: #8592a3">5 · 표본 부족</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px; color: #a3adba">−1.1% · 40% <span style="color: #8592a3">5 · 표본 부족</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px; color: #8592a3">—</td></tr>
+<tr><td style="font-family: 'IBM Plex Sans KR', sans-serif; padding-right: 8px">급변 상승 <span style="color: #8592a3">· 알림 끔</span></td><td style="background: #2a1a1b; border-radius: 6px; padding: 8px">−0.4% · <b style="color: #f2555a">35%</b> <span style="color: #8592a3">6,112</span></td><td style="background: #2a1a1b; border-radius: 6px; padding: 8px">−1.1% · <b style="color: #f2555a">33%</b> <span style="color: #8592a3">5,931</span></td><td style="background: #1b212b; border-radius: 6px; padding: 8px; color: #8592a3">—</td></tr>
+</tbody>
+</table>
+</div>
+<div style="font-size: 11px; color: #8592a3">칸 = 수익률 중앙값 · 적중률 · 표본. 적중률 55% 이상 칸만 밝게, 45% 미만은 붉은 바탕. 표본 20 미만은 흐리게.</div>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

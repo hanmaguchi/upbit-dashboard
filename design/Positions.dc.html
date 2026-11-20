@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>포지션·전략</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#0b0e13}
+a{color:#8ab4f8}a:hover{color:#c3d8fb}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #0b0e13; color: #e6e9ef; font-family: 'IBM Plex Sans KR', system-ui, sans-serif; font-size: 13px; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: stretch">
+
+<aside style="flex: 1 1 220px; max-width: 100%; box-sizing: border-box; background: #0f1319; border-right: 1px solid #222934; padding: 20px 16px; display: flex; flex-direction: column; gap: 22px">
+<a href="#" style="color: #e6e9ef; text-decoration: none; font: 700 16px 'JetBrains Mono', monospace; letter-spacing: -0.02em; padding: 0 8px">upbit-tools</a>
+<nav aria-label="대시보드 구획" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">대시보드</div>
+<a href="Console.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">지금 시장</a>
+<a href="Positions.dc.html" aria-current="page" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; background: #1b212b; color: #ffffff; font-weight: 600; text-decoration: none">포지션·전략</a>
+<a href="Sprout.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">발아 감시</a>
+<a href="Signals.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">신호 로그·검증</a>
+<a href="Research.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">리서치</a>
+<a href="Futures.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">선물 지표</a>
+<a href="Calculator.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">계산기</a>
+</nav>
+<nav aria-label="사이트" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">다른 페이지</div>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">청산맵</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">인사이트</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">커뮤니티·링크</a>
+</nav>
+<div style="margin-top: auto; border: 1px solid #222934; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #a3adba">
+<span style="display: inline-flex; align-items: center; gap: 6px; color: #5fd3a6; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 50%; background: #5fd3a6"></span>실시간</span>
+<span style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">2026-11-19 01:45 KST</span>
+<span>5분마다 갱신 · 포트폴리오 비공개</span>
+</div>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 12px">
+
+<section aria-labelledby="verdict" style="padding: 0 4px; display: flex; flex-direction: column; gap: 6px">
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3; letter-spacing: 0.04em">포지션·전략 · 11-19 01:45 KST · 주문 없음(가상 기록)</div>
+<h1 id="verdict" style="margin: 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; max-width: 32em; text-wrap: balance">모든 전략이 플랫이다. 50일선 규칙은 원화로 BTC 보유보다 <span style="color: #3fbf7f">+15.6%p</span> 앞서 있다.</h1>
+<p style="margin: 0; font-size: 13px; color: #a3adba">2026-10-08 이후 40일 · 규칙 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">−5.7%</b> vs BTC 보유 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">−21.4%</b> · 최대 낙폭 규칙 −6.6% / 보유 −22.1% · 교체 5회</p>
+</section>
+
+<section aria-label="판정 근거" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: #222934; border: 1px solid #222934; border-radius: 12px; overflow: hidden">
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">BTC 50일선 규칙</div>
+<div style="font-size: 20px; font-weight: 700">원화</div>
+<div style="font: 12px 'JetBrains Mono', monospace; color: #a3adba">50일선 106,980,360 · <span style="color: #f2555a">−20.5%</span></div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">10-22 교체 · 판정 2027-10-08</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">합산 익스포저</div>
+<div style="font-size: 20px; font-weight: 700">플랫 4 / 4</div>
+<div style="font-size: 12px; color: #a3adba">터틀·평균회귀 × BTC·ETH 모두 플랫</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">중복 노출 없음</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">듀얼모멘텀 · 2026-11</div>
+<div style="font-size: 20px; font-weight: 700">현금</div>
+<div style="font-size: 12px; color: #a3adba">최고 점수 SOL <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">−0.56</b> ≤ 0</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #f2555a">불합격 · 페이퍼 중단</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">페이퍼 NAV · powerlaw_dca</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">4,875,391</div>
+<div style="font-size: 12px; color: #a3adba">07-20~ <b style="font-family: 'JetBrains Mono', monospace; color: #f2555a">−2.5%</b> · 비교 기준 +0.0%p</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">현금 87% · BTC 13%</div>
+</div>
+</section>
+
+<section aria-labelledby="strat" style="background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px">
+<h2 id="strat" style="margin: 0; font-size: 14px; font-weight: 700">전략 한눈에</h2>
+<div style="display: flex; align-items: center; gap: 4px; font: 11px 'JetBrains Mono', monospace; color: #8592a3">기록
+<button type="button" aria-label="이전 기록" style="width: 28px; height: 28px; border: 1px solid #5f6b7c; background: transparent; color: #e6e9ef; border-radius: 6px">‹</button>
+<span style="color: #e6e9ef; padding: 0 4px">11-18 09:02 · 최신</span>
+<button type="button" aria-label="다음 기록" disabled style="width: 28px; height: 28px; border: 1px solid #2a3340; background: transparent; color: #5f6b7c; border-radius: 6px">›</button>
+</div>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 13px">
+<thead><tr style="color: #8592a3; font-size: 11px; text-align: left">
+<th style="font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid #222934">전략</th><th style="font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid #222934">마켓</th><th style="font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid #222934">상태</th><th style="font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid #222934">지금 지표</th><th style="font-weight: 500; padding: 8px 12px 8px 0; border-bottom: 1px solid #222934; text-align: right">백테스트 vs HODL</th><th style="font-weight: 500; padding: 8px 0; border-bottom: 1px solid #222934">검증</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">터틀 System 2</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">BTC</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">대기</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">HH55 117,646천 · 진입까지 <b style="color: #e6e9ef">+38.3%</b></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">+10% / +25%</td><td style="border-bottom: 1px solid #1b212b; font-size: 12px"><span style="color: #8ab4f8">기록 중</span> · 2027-10-29</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">터틀 System 2</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">ETH</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">대기</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">HH55 3,748천 · 진입까지 <b style="color: #e6e9ef">+58.5%</b></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">+5% / <span style="color: #f2555a">−39%</span></td><td style="border-bottom: 1px solid #1b212b; font-size: 12px"><span style="color: #8ab4f8">기록 중</span> · 2027-10-29</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">평균회귀 RSI(2)</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">BTC</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">대기</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">RSI2 <b style="color: #e6e9ef">13.3</b> · 200일선 아래</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace"><span style="color: #f2555a">−13%</span> / +25%</td><td style="border-bottom: 1px solid #1b212b; font-size: 12px"><span style="color: #8ab4f8">기록 중</span> · 청산 40건</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">평균회귀 RSI(2)</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">ETH</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">대기</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">RSI2 <b style="color: #e6e9ef">25.6</b> · 200일선 아래</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">−0% / <span style="color: #f2555a">−39%</span></td><td style="border-bottom: 1px solid #1b212b; font-size: 12px"><span style="color: #8ab4f8">기록 중</span> · 청산 40건</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">듀얼모멘텀</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">BTC·ETH·SOL</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">현금</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">BTC −0.85 · ETH −0.93 · SOL −0.56</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">+359% / +263%</td><td style="border-bottom: 1px solid #1b212b; font-size: 12px"><span style="color: #f2555a">불합격</span> · 샤프 0.98 &lt; 1.15</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; border-bottom: 1px solid #1b212b; font-weight: 600">powerlaw_dca</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px">BTC</td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px"><span style="border: 1px solid #3fbf7f; color: #3fbf7f; border-radius: 6px; padding: 0 6px; font-size: 11px">보유</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">0.0077개 · 평단 104,459,606 · <span style="color: #f2555a">−18.6%</span></td><td style="border-bottom: 1px solid #1b212b; padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">—</td><td style="border-bottom: 1px solid #1b212b; font-size: 12px; color: #a3adba">페이퍼 · 16회 매수</td></tr>
+<tr><td style="padding: 10px 12px 10px 0; font-weight: 600">aoa MTF</td><td style="padding-right: 12px">BTC 선물</td><td style="padding-right: 12px"><span style="border: 1px solid #5f6b7c; color: #a3adba; border-radius: 6px; padding: 0 6px; font-size: 11px">대기</span></td><td style="padding-right: 12px; font-family: 'JetBrains Mono', monospace; color: #a3adba">1,005.72 USDT · <span style="color: #3fbf7f">+0.6%</span> · 거래 1</td><td style="padding-right: 12px; text-align: right; font-family: 'JetBrains Mono', monospace">—</td><td style="font-size: 12px; color: #a3adba">페이퍼 · 본전 P 0.58</td></tr>
+</tbody>
+</table>
+</div>
+<div style="font-size: 11px; color: #8592a3">백테스트 2024-02-23 ~ 2026-11-17 가상 · 전략 / HODL · 가격 단위 천원(터틀) · 주문 없음</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch">
+<section aria-labelledby="aoa" style="flex: 1 1 380px; min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="aoa" style="margin: 0; font-size: 14px; font-weight: 700">aoa 신호 확률 분포</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">10-10 23:30 ~ · 412건</span></div>
+<div style="font-size: 12px; color: #a3adba">진입 조건 <b style="color: #e6e9ef">P ≥ 0.58</b>(본전). 412건 중 1건만 넘었다 · 최고 0.60 (11-13 22:35)</div>
+<div role="img" aria-label="P 분포: 0.30 미만 71, 0.30~0.40 74, 0.40~0.50 227, 0.50~0.58 39, 0.58 이상 1" style="display: flex; align-items: flex-end; gap: 6px; height: 120px; padding-top: 8px; border-bottom: 1px solid #2a3340">
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end"><span style="font: 11px 'JetBrains Mono', monospace; color: #a3adba">71</span><div style="width: 100%; height: 31%; background: #2a3340; border-radius: 2px 2px 0 0"></div></div>
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end"><span style="font: 11px 'JetBrains Mono', monospace; color: #a3adba">74</span><div style="width: 100%; height: 33%; background: #2a3340; border-radius: 2px 2px 0 0"></div></div>
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end"><span style="font: 11px 'JetBrains Mono', monospace; color: #a3adba">227</span><div style="width: 100%; height: 80%; background: #2a3340; border-radius: 2px 2px 0 0"></div></div>
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end"><span style="font: 11px 'JetBrains Mono', monospace; color: #a3adba">39</span><div style="width: 100%; height: 17%; background: #2a3340; border-radius: 2px 2px 0 0"></div></div>
+<div style="flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end"><span style="font: 11px 'JetBrains Mono', monospace; color: #e6e9ef">1</span><div style="width: 100%; height: 3px; background: #e6e9ef; border-radius: 2px 2px 0 0"></div></div>
+</div>
+<div style="display: flex; gap: 6px; font: 11px 'JetBrains Mono', monospace; color: #8592a3"><span style="flex: 1 1 0; text-align: center">~0.30</span><span style="flex: 1 1 0; text-align: center">0.30–0.40</span><span style="flex: 1 1 0; text-align: center">0.40–0.50</span><span style="flex: 1 1 0; text-align: center">0.50–0.58</span><span style="flex: 1 1 0; text-align: center; color: #e6e9ef">0.58~</span></div>
+</section>
+
+<section aria-labelledby="exit" style="flex: 1 1 420px; min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="exit" style="margin: 0; font-size: 14px; font-weight: 700">출구 용량 · 지금 팔면</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">호가 11-19 01:45</span></div>
+<div style="font-size: 12px; color: #a3adba">보유 BTC(powerlaw_dca)는 1% 안 매수잔량 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">6,331만</b> · 5,000만원 매도 시 손해 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">0.05%</b></div>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 12px">
+<thead><tr style="color: #8592a3; font-size: 11px; text-align: left"><th style="font-weight: 500; padding: 6px 0; border-bottom: 1px solid #222934">출구가 좁은 순</th><th style="font-weight: 500; padding: 6px 0; text-align: right; border-bottom: 1px solid #222934">1% 안 매수잔량</th><th style="font-weight: 500; padding: 6px 0; text-align: right; border-bottom: 1px solid #222934">1,000만 손해</th><th style="font-weight: 500; padding: 6px 0; text-align: right; border-bottom: 1px solid #222934">5,000만 손해</th></tr></thead>
+<tbody style="font-family: 'JetBrains Mono', monospace">
+<tr><td style="padding: 8px 0; border-bottom: 1px solid #1b212b">TRAC</td><td style="text-align: right; border-bottom: 1px solid #1b212b">66만</td><td style="text-align: right; border-bottom: 1px solid #1b212b; color: #e8b53b">2.22%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; color: #f2555a">7.09% 호가 부족</td></tr>
+<tr><td style="padding: 8px 0; border-bottom: 1px solid #1b212b">ALGO</td><td style="text-align: right; border-bottom: 1px solid #1b212b">25만</td><td style="text-align: right; border-bottom: 1px solid #1b212b; color: #e8b53b">1.40%</td><td style="text-align: right; border-bottom: 1px solid #1b212b">1.42%</td></tr>
+<tr><td style="padding: 8px 0; border-bottom: 1px solid #1b212b">IMX</td><td style="text-align: right; border-bottom: 1px solid #1b212b">1만</td><td style="text-align: right; border-bottom: 1px solid #1b212b; color: #e8b53b">1.16%</td><td style="text-align: right; border-bottom: 1px solid #1b212b">2.24%</td></tr>
+<tr><td style="padding: 8px 0; border-bottom: 1px solid #1b212b">WIF</td><td style="text-align: right; border-bottom: 1px solid #1b212b">1,685만</td><td style="text-align: right; border-bottom: 1px solid #1b212b">0.53%</td><td style="text-align: right; border-bottom: 1px solid #1b212b; color: #f2555a">19.90% 호가 부족</td></tr>
+<tr><td style="padding: 8px 0">SPX</td><td style="text-align: right">1,656만</td><td style="text-align: right">0.53%</td><td style="text-align: right; color: #f2555a">51.63%</td></tr>
+</tbody>
+</table>
+</div>
+<button type="button" style="align-self: flex-start; min-height: 32px; padding: 0 12px; border: 1px solid #5f6b7c; background: transparent; color: #e6e9ef; border-radius: 8px; font-size: 12px">나머지 62개 보기</button>
+</section>
+</div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

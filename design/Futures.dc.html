@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>선물 지표</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#0b0e13}
+a{color:#8ab4f8}a:hover{color:#c3d8fb}
+</style>
+</helmet>
+<div style="min-height: 100%; background: #0b0e13; color: #e6e9ef; font-family: 'IBM Plex Sans KR', system-ui, sans-serif; font-size: 13px; line-height: 1.5; display: flex; flex-wrap: wrap; align-items: stretch">
+
+<aside style="flex: 1 1 220px; max-width: 100%; box-sizing: border-box; background: #0f1319; border-right: 1px solid #222934; padding: 20px 16px; display: flex; flex-direction: column; gap: 22px">
+<a href="#" style="color: #e6e9ef; text-decoration: none; font: 700 16px 'JetBrains Mono', monospace; letter-spacing: -0.02em; padding: 0 8px">upbit-tools</a>
+<nav aria-label="대시보드 구획" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">대시보드</div>
+<a href="Console.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">지금 시장</a>
+<a href="Positions.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">포지션·전략</a>
+<a href="Sprout.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">발아 감시</a>
+<a href="Signals.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">신호 로그·검증</a>
+<a href="Research.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">리서치</a>
+<a href="Futures.dc.html" aria-current="page" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; background: #1b212b; color: #ffffff; font-weight: 600; text-decoration: none">선물 지표</a>
+<a href="Calculator.dc.html" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; color: #a3adba; text-decoration: none">계산기</a>
+</nav>
+<nav aria-label="사이트" style="display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 11px; color: #8592a3; letter-spacing: 0.06em; padding: 0 8px 6px">다른 페이지</div>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">청산맵</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">인사이트</a>
+<a href="#" style="display: flex; align-items: center; min-height: 36px; padding: 0 10px; color: #a3adba; text-decoration: none">커뮤니티·링크</a>
+</nav>
+<div style="margin-top: auto; border: 1px solid #222934; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #a3adba">
+<span style="display: inline-flex; align-items: center; gap: 6px; color: #5fd3a6; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 50%; background: #5fd3a6"></span>실시간</span>
+<span style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">2026-11-19 01:45 KST</span>
+<span>5분마다 갱신 · 포트폴리오 비공개</span>
+</div>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 12px">
+
+<section aria-labelledby="verdict" style="padding: 0 4px; display: flex; flex-direction: column; gap: 6px">
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3; letter-spacing: 0.04em">선물 지표 · 청산맵 추정 · 중기 7일 · 분포 A</div>
+<h1 id="verdict" style="margin: 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.02em; max-width: 32em; text-wrap: balance">아래쪽 롱 청산이 훨씬 무겁다. 다만 '무거운 쪽으로 먼저 간다'는 판정은 <span style="color: #f2555a">불합격</span>이다.</h1>
+<p style="margin: 0; font-size: 13px; color: #a3adba">BTC ±2% 안 롱 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">$66.7M</b> vs 숏 <b style="font-family: 'JetBrains Mono', monospace; color: #e6e9ef">$4.0M</b> · 방향 적중 BTC 50% · ETH 50% (2021~2026) · 위치 순위는 통과(54%)</p>
+</section>
+
+<section aria-label="판정 근거" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: #222934; border: 1px solid #222934; border-radius: 12px; overflow: hidden">
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">BTC · ±2% 안 청산</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">롱 16.7배</div>
+<div role="img" aria-label="롱 66.7M, 숏 4.0M" style="display: flex; gap: 2px; height: 8px; border-radius: 3px; overflow: hidden"><div style="flex: 66.7 1 0; background: #f2555a"></div><div style="flex: 4 1 0; background: #3fbf7f"></div></div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">롱 $66.7M · 숏 $4.0M</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">ETH · ±2% 안 청산</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">롱 7.7배</div>
+<div role="img" aria-label="롱 10.8M, 숏 1.4M" style="display: flex; gap: 2px; height: 8px; border-radius: 3px; overflow: hidden"><div style="flex: 10.8 1 0; background: #f2555a"></div><div style="flex: 1.4 1 0; background: #3fbf7f"></div></div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">롱 $10.8M · 숏 $1.4M</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">7일 실제 청산 · 표본</div>
+<div style="font: 700 20px 'JetBrains Mono', monospace">$825.7M 롱</div>
+<div style="font-size: 12px; color: #a3adba">BTC $492.3M · ETH $333.4M</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">숏 BTC $111.3M · ETH $95.8M</div>
+</div>
+<div style="background: #12161d; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 11px; color: #8592a3">이 지도의 검증</div>
+<div style="font-size: 20px; font-weight: 700">위치 <span style="color: #3fbf7f">통과</span></div>
+<div style="font-size: 12px; color: #a3adba">방향은 <b style="color: #f2555a">불합격</b> · 50%</div>
+<div style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">4시간 창 123개 중 54%</div>
+</div>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 12px">
+<section aria-labelledby="btc" style="min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="btc" style="margin: 0; font-size: 14px; font-weight: 700">BTC 청산 가격대</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">USDT · 바이낸스 OI 기반 추정</span></div>
+<div role="img" aria-label="BTC 현재 62,401. 위 숏 청산 70,600 26.1M, 70,400 33.4M, 70,200 26.1M. 아래 롱 청산 58,400 41.9M, 58,200 34.9M, 58,000 42.3M" style="display: grid; grid-template-columns: 72px 56px minmax(0, 1fr) 56px; gap: 6px 10px; align-items: center; font: 12px 'JetBrains Mono', monospace">
+<span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3; grid-column: 1 / -1">위 · 숏 청산</span>
+<span>70,600</span><span style="color: #8592a3">+13.1%</span><div style="height: 14px; width: 62%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$26.1M</span>
+<span>70,400</span><span style="color: #8592a3">+12.8%</span><div style="height: 14px; width: 79%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$33.4M</span>
+<span>70,200</span><span style="color: #8592a3">+12.5%</span><div style="height: 14px; width: 62%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$26.1M</span>
+<div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 10px 0"><span style="font-weight: 700; color: #e6e9ef">62,401</span><span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3">지금</span><div style="flex: 1 1 auto; border-top: 1px dashed #5f6b7c"></div></div>
+<span>58,400</span><span style="color: #8592a3">−6.4%</span><div style="height: 14px; width: 99%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$41.9M</span>
+<span>58,200</span><span style="color: #8592a3">−6.7%</span><div style="height: 14px; width: 83%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$34.9M</span>
+<span>58,000</span><span style="color: #8592a3">−7.1%</span><div style="height: 14px; width: 100%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$42.3M</span>
+<span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3; grid-column: 1 / -1">아래 · 롱 청산</span>
+</div>
+</section>
+
+<section aria-labelledby="eth" style="min-width: 0; background: #12161d; border: 1px solid #222934; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="eth" style="margin: 0; font-size: 14px; font-weight: 700">ETH 청산 가격대</h2><span style="font: 11px 'JetBrains Mono', monospace; color: #8592a3">USDT · 바이낸스 OI 기반 추정</span></div>
+<div role="img" aria-label="ETH 현재 1,737. 위 숏 청산 1,990 17.1M, 1,980 21.8M, 1,970 16.6M. 아래 롱 청산 1,640 32.1M, 1,610 26.3M, 1,470 34.0M" style="display: grid; grid-template-columns: 72px 56px minmax(0, 1fr) 56px; gap: 6px 10px; align-items: center; font: 12px 'JetBrains Mono', monospace">
+<span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3; grid-column: 1 / -1">위 · 숏 청산</span>
+<span>1,990</span><span style="color: #8592a3">+14.6%</span><div style="height: 14px; width: 50%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$17.1M</span>
+<span>1,980</span><span style="color: #8592a3">+14.0%</span><div style="height: 14px; width: 64%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$21.8M</span>
+<span>1,970</span><span style="color: #8592a3">+13.4%</span><div style="height: 14px; width: 49%; background: #3fbf7f; border-radius: 2px"></div><span style="text-align: right">$16.6M</span>
+<div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 10px 0"><span style="font-weight: 700; color: #e6e9ef">1,737</span><span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3">지금</span><div style="flex: 1 1 auto; border-top: 1px dashed #5f6b7c"></div></div>
+<span>1,640</span><span style="color: #8592a3">−5.6%</span><div style="height: 14px; width: 94%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$32.1M</span>
+<span>1,610</span><span style="color: #8592a3">−7.3%</span><div style="height: 14px; width: 77%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$26.3M</span>
+<span>1,470</span><span style="color: #8592a3">−15.4%</span><div style="height: 14px; width: 100%; background: #f2555a; border-radius: 2px"></div><span style="text-align: right">$34.0M</span>
+<span style="font: 11px 'IBM Plex Sans KR', sans-serif; color: #8592a3; grid-column: 1 / -1">아래 · 롱 청산</span>
+</div>
+</section>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 12px 16px; border: 1px solid #222934; border-radius: 12px; background: #12161d">
+<span style="font-size: 12px; color: #a3adba; max-width: 60em">가격 = 구간 아래 경계. 바이낸스 OI 증감과 레버리지 분포 가정으로 만든 추정이라 가정에 따라 크게 달라진다. 막대 길이는 코인 안에서 가장 큰 칸 대비.</span>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 1px solid #5f6b7c; border-radius: 8px; color: #e6e9ef; text-decoration: none; font-size: 12px">청산맵 전체 · 기간별 · 실제 청산 겹쳐 보기 →</a>
+</div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

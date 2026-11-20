@@ -1,0 +1,16 @@
+{"v":3,"createdOnFiles":{"v":1,"at":"2026-11-19T08:20:00Z"},"title":"upbit-tools 대시보드 리뉴얼 시안","launch":{"view":"canvas"},"pages":[],
+"boards":{
+"Main.dc.html":{"x":0,"y":0,"w":1440,"h":1880,"title":"A안 · 브리핑 — 판정 한 문장에서 시작하는 아침 리포트","expand":"fill"},
+"Console.dc.html":{"x":1520,"y":0,"w":1440,"h":1280,"title":"확정안 · 지금 시장","expand":"fill"},
+"Mobile.dc.html":{"x":3040,"y":0,"w":390,"h":2240,"title":"확정안 · 모바일 지금 시장 (390)"},
+"Positions.dc.html":{"x":0,"y":2240,"w":1440,"h":1500,"title":"확정안 · 포지션·전략","expand":"fill"},
+"Sprout.dc.html":{"x":1520,"y":2240,"w":1440,"h":1500,"title":"확정안 · 발아 감시","expand":"fill"},
+"Signals.dc.html":{"x":3040,"y":2240,"w":1440,"h":1500,"title":"확정안 · 신호 로그·검증","expand":"fill"},
+"Research.dc.html":{"x":0,"y":3860,"w":1440,"h":1500,"title":"확정안 · 리서치","expand":"fill"},
+"Futures.dc.html":{"x":1520,"y":3860,"w":1440,"h":1200,"title":"확정안 · 선물 지표","expand":"fill"},
+"Calculator.dc.html":{"x":3040,"y":3860,"w":1440,"h":1300,"title":"확정안 · 계산기","expand":"fill"}
+},
+"order":["Main.dc.html","Console.dc.html","Mobile.dc.html","Positions.dc.html","Sprout.dc.html","Signals.dc.html","Research.dc.html","Futures.dc.html","Calculator.dc.html"],
+"notes":{"t":{"x":0,"y":-300,"text":"upbit-tools 대시보드 리뉴얼 — 시안 2종 (데이터 2026-11-19 01:45 KST 스냅샷)","kind":"title1","maxW":2960},
+"t2":{"x":0,"y":2000,"text":"확정안 · 나머지 탭 — 탭마다 판정 문장 → 판정 줄 → 근거 패널, 반복 스냅샷은 '기록 ‹ ›' 하나로","kind":"title1","maxW":4480}},
+"designSystems":[]}
