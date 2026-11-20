@@ -1,7 +1,6 @@
 <!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>BTC·ETH 청산맵</title><style>
-:root{--bg:#0f1115;--card:#1a1d24;--line:#272b34;--line2:#23262e;--text:#e6e6e6;
---muted:#9aa7b4;--dim:#8b949e;--accent:#2563eb;--link:#58a6ff;--pos:#3fb950;--neg:#f85149;--warn:#d29922;
---fs-xs:12px;--fs-sm:13px;--fs-md:14px;--fs-title:15px;--fs-lg:20px;--fs-xl:28px;
+/* 색·글꼴 토큰(--bg·--card·--pos·--mono …)은 design/theme.css :root 한 곳 — 모든 페이지가 이 CSS 뒤에 싣는다 */
+:root{--fs-xs:12px;--fs-sm:13px;--fs-md:14px;--fs-title:15px;--fs-lg:20px;--fs-xl:28px;
 --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px}
 /* 색 규칙: 초록=상승·정상, 빨강=하락·위험, 주황=주의(오래된 데이터·과열) */
 *{box-sizing:border-box} html{background:var(--bg)}
@@ -12,21 +11,20 @@ a{color:var(--link)}
 button:focus-visible,summary:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 summary{cursor:pointer}
 h1{font-size:var(--fs-lg);margin:0 0 var(--s1)} .sub{color:var(--dim);font-size:var(--fs-xs);margin-bottom:var(--s3)}
-.strip{overflow:hidden;white-space:nowrap;background:var(--card);border:1px solid var(--line);
-border-radius:10px;margin-bottom:var(--s3);font-size:var(--fs-sm);font-variant-numeric:tabular-nums;cursor:pointer}
-.strip .track{display:inline-block;padding:10px 0;animation:marq 60s linear infinite;will-change:transform}
-.strip .track>span{padding:0 18px}
-.strip:hover .track,.strip.paused .track{animation-play-state:paused}
+/* 흐르는 띠 — 오른쪽 끝 흐림 + ❚❚ 멈춤 버튼(마우스 올림·띠 탭도 멈춤) */
+.strip{display:flex;align-items:center;gap:12px;padding-right:6px;white-space:nowrap;background:var(--card);
+border:1px solid var(--line);border-radius:10px;font:12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.strip .stv{flex:1 1 auto;min-width:0;overflow:hidden;cursor:pointer;
+-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.strip .track{display:inline-block;padding:9px 0;animation:marq 60s linear infinite;will-change:transform}
+.strip .track>span{padding:0 16px}
+.strip .stv:hover .track,.strip.paused .track{animation-play-state:paused}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .strip b{color:var(--text)}
-@media (prefers-reduced-motion:reduce){.strip{overflow-x:auto}.strip .track{animation:none}}
-.tabs{display:flex;gap:var(--s2);margin-bottom:var(--s4);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;
-background:var(--bg);padding:8px 0;z-index:9}
-.tabs::-webkit-scrollbar{display:none}
-.tabs button{flex:none;min-height:38px;background:var(--card);color:var(--muted);border:1px solid var(--line);
-border-radius:8px;padding:var(--s2) var(--s4);font-size:var(--fs-md);cursor:pointer}
-.tabs button:hover{color:var(--text)}
-.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.stp{flex:none;min-width:32px;height:32px;border:1px solid var(--btn);background:transparent;color:var(--text);
+border-radius:8px;font:11px var(--mono);cursor:pointer}
+@media (pointer:coarse){.stp{min-width:44px}}
+@media (prefers-reduced-motion:reduce){.strip .stv{overflow-x:auto}.strip .track{animation:none}}
 .pane{display:none}.pane.on{display:block}
 .grid{display:grid;gap:var(--s4);grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr))}
 .grid>*{min-width:0}
@@ -97,7 +95,6 @@ color:var(--dim);font-weight:400}
 .pgn .pgl{margin-left:auto;color:var(--dim);font-size:var(--fs-xs)}
 .pgn .pgi{display:none;color:var(--muted);font-variant-numeric:tabular-nums}
 @media (pointer:coarse){
-.tabs button{min-height:44px}
 .pgn button{min-width:44px;height:44px;font-size:13px}
 .pgn .pgnum{display:none}.pgn .pgi{display:inline}
 }
@@ -152,12 +149,6 @@ background:none;border:0;border-radius:6px;color:var(--dim);cursor:pointer;font-
 .abt:hover,.card.open .abt{color:var(--link);background:#ffffff0d}
 .card .about{display:none}.card.open .about{display:block}
 @media (pointer:coarse){.abt{width:44px;height:44px;margin:-14px -12px -14px 0}}
-.band{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:var(--s3);margin-bottom:var(--s4)}
-.bt{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:var(--s3) var(--s4);
-display:flex;flex-direction:column;gap:2px;min-width:0}
-.bl{font-size:var(--fs-xs);color:var(--dim)}
-.bv{font-size:var(--fs-lg);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bs{font-size:var(--fs-xs);color:var(--muted)}
 .spk{touch-action:pan-y;width:100%;height:28px;margin-top:auto;padding-top:var(--s1);box-sizing:content-box;fill:none;stroke:var(--link);stroke-width:1.5;
 vector-effect:non-scaling-stroke;overflow:visible}
 .spk polyline{vector-effect:non-scaling-stroke}
@@ -187,137 +178,222 @@ font-variant-numeric:tabular-nums;line-height:1.45;text-shadow:0 0 3px var(--car
 .lwbox.on{position:fixed;inset:0;z-index:99;background:var(--bg);padding:12px;display:flex;flex-direction:column}
 .lwbox.on .lwn{margin-top:0;padding-top:0;border-top:0}
 .lwbox.on .lwc{flex:1 1 0;min-height:0;height:auto;overflow:hidden;touch-action:none}
+/* ── 확정안 틀(2026-11) — 데스크톱 왼쪽 사이드바, 폰(760px 미만) 위 머리줄 + 아래 탭바 ── */
+html.dash body{max-width:none;margin:0;padding:0;font-size:13px;word-break:keep-all;overflow-wrap:break-word}
+.app{display:flex;align-items:stretch;min-height:100vh}
+.sbar{flex:0 0 220px;position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side);
+border-right:1px solid var(--line);padding:20px 16px;display:flex;flex-direction:column;gap:22px}
+.sbar .brand,.mhead .brand{color:var(--text);text-decoration:none;font:700 16px var(--mono);letter-spacing:-.02em;padding:0 8px}
+.sbar nav{display:flex;flex-direction:column;gap:2px}
+.nhd{font-size:11px;color:var(--dim);letter-spacing:.06em;padding:0 8px 6px}
+.sbar nav button,.sbar nav a{display:flex;justify-content:space-between;align-items:center;min-height:36px;padding:0 10px;
+border:0;border-radius:8px;background:none;color:var(--muted);font:inherit;text-align:left;text-decoration:none;cursor:pointer}
+.sbar nav button:hover,.sbar nav a:hover{color:var(--text);background:#ffffff08}
+.sbar nav button.on{background:var(--line2);color:#fff;font-weight:600}
+.tbadge{font:11px var(--mono);color:var(--warn)}
+.sstat{margin-top:auto;border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;
+gap:6px;font-size:12px;color:var(--muted)}
+.sgt{font-family:var(--mono);color:var(--text)}
+.lvp{display:inline-flex;align-items:center;gap:6px;color:var(--ok);font-weight:600}
+.lvp::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.lvp.stale{color:var(--crit)}
+.app>main{flex:1 1 0;min-width:0;padding:16px 20px 32px}
+.mhead,.bnav{display:none}
+.app[data-cur="0"] .vbar{display:none} /* 지금 시장은 판정 근거 칸이 같은 내용 */
+@media (max-width:759px){
+.app{display:block;min-height:0}
+.sbar{display:none}
+.mhead{display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 16px;
+border-bottom:1px solid var(--line);background:var(--side)}
+.mhead .brand{font-size:15px;padding:0}
+.mst{font:11px var(--mono);color:var(--muted)}
+.mst .lvp{font-family:inherit}
+.app>main{padding:16px 12px 96px}
+.bnav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:40;
+padding-bottom:env(safe-area-inset-bottom);border-top:1px solid var(--line);background:var(--side)}
+.bnav>button,.bmore>summary{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:64px;
+border:0;background:none;color:var(--muted);font:inherit;font-size:11px;cursor:pointer;list-style:none;padding:0}
+.bnav .ic{width:20px;height:20px}
+.bnav>button.on,.bmore.on>summary{color:#fff;font-weight:600;box-shadow:inset 0 2px 0 var(--text)}
+.bmore{position:relative;margin:0}
+.bmore>summary::-webkit-details-marker{display:none}
+.bmenu{position:absolute;right:8px;bottom:72px;min-width:200px;padding:8px;background:var(--card);border:1px solid var(--line);
+border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:2px}
+.bmenu nav{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line2);margin-top:6px;padding-top:6px}
+.bmenu button,.bmenu a{display:flex;align-items:center;min-height:44px;padding:0 12px;border:0;border-radius:8px;background:none;
+color:var(--muted);font:inherit;font-size:14px;text-align:left;text-decoration:none;cursor:pointer}
+.bmenu button.on{color:#fff;background:var(--line2);font-weight:600}
+#newbar{bottom:84px}
+}
+/* ── 지금 시장 — 판정 문장 → 판정 근거 4칸 → BTC·오늘 볼 것 → 김프·시장 폭·알트 국면 → 근거 카드 ── */
+.nowp{display:flex;flex-direction:column;gap:12px}
+.verd{padding:8px 4px 0;display:flex;flex-direction:column;gap:6px}
+.verdt{font:11px var(--mono);color:var(--dim);letter-spacing:.04em}
+.verd h1{margin:0;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:-.02em;max-width:30em;text-wrap:balance}
+.verd p{margin:0;max-width:60em;color:var(--muted)}
+.verd p b,.rcsub b{font-family:var(--mono);color:var(--text);font-weight:600}
+.rcells{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);
+border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rcell{background:var(--card);padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.rclab{font-size:11px;color:var(--dim);letter-spacing:.04em}
+.rcval{font-size:20px;font-weight:700;display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px}
+.rcnum{font:700 24px/1 var(--mono)}
+.rcage{font:600 13px var(--mono)}
+.rcsub{font-size:12px;color:var(--muted)}
+.rcft{font:11px var(--mono);color:var(--dim)}
+.rcft.neg{color:var(--neg)}
+.rgbadge{color:#0a0d12;font:700 13px var(--mono);padding:2px 8px;border-radius:5px;background:var(--muted)}
+.rgbadge.bull-highvol{background:var(--pos)}.rgbadge.bull-lowvol{background:#9fe2bf}
+.rgbadge.bear-highvol{background:var(--neg)}.rgbadge.bear-lowvol{background:#f7a8ab}
+.nrow{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.nrow>.card{min-width:0;flex:1 1 300px}
+.nrow>.card.btcp{flex:2 1 520px}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px;align-items:start}
+.ngrid>*{min-width:0}
+.nrow .card:not(.today) h2,.ngrid .card h2{font-size:12px;font-weight:500;color:var(--dim);margin-bottom:8px}
+.ngrid .card h2 .tt .ic{display:none}
+/* BTC — 데스크톱: 가격 줄 오른쪽에 기간 버튼, 폰: 차트 아래 넓은 버튼 */
+.bpn{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:baseline}
+.bph{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px}
+.bpv{font:700 34px/1.1 var(--mono);letter-spacing:-.02em}
+.bchg{font:600 14px var(--mono)}
+.bcr{grid-row:1;grid-column:2;display:flex;gap:4px}
+.bcr button{height:30px;min-width:40px;border:1px solid var(--btn);background:transparent;color:var(--muted);
+border-radius:6px;font:12px var(--mono);cursor:pointer}
+.bcr button.on{background:var(--text);border-color:var(--text);color:#0a0d12;font-weight:600}
+.bch{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px}
+.bch[hidden]{display:none}
+.bcp{position:relative;touch-action:pan-y}
+.card .bcp svg[role="img"]{display:block;width:100%;height:260px;max-width:none}
+.bcp line{stroke:var(--line2);stroke-width:1;vector-effect:non-scaling-stroke}
+.bcp polygon{fill:var(--card2)}
+.bcp polyline{fill:none;stroke:#c9d6e8;stroke-width:2;vector-effect:non-scaling-stroke}
+.bcx{display:none;position:absolute;top:0;bottom:0;width:1px;background:var(--dim);pointer-events:none}
+.bcy{display:flex;flex-direction:column;justify-content:space-between;font:11px var(--mono);color:var(--dim);padding-bottom:4px}
+.bcxl{display:flex;justify-content:space-between;font:11px var(--mono);color:var(--dim)}
+/* 오늘 볼 것 — 등급 칩 + 등급순 행 */
+.tdc{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
+.tdc span{border:1px solid;border-radius:999px;padding:0 8px;font-size:11px}
+.tdc .sv-crit{background:var(--crit);border-color:var(--crit);color:#0a0d12;font-weight:600}
+.tdc .sv-warn{color:var(--warn)}.tdc .sv-info{color:var(--muted);border-color:var(--btn)}.tdc .sv-ok{color:var(--ok);border-color:#1c3a30}
+.tdr{display:grid;grid-template-columns:34px minmax(0,1fr);gap:2px 8px;padding:9px 0;border-top:1px solid var(--line2)}
+.tdr>b{font-size:11px;font-weight:700}
+.tdr.sv-crit>b{color:var(--crit)}.tdr.sv-warn>b{color:var(--warn)}.tdr.sv-info>b{color:var(--muted)}.tdr.sv-ok>b{color:var(--ok)}
+.tdr.sv-ok>span{color:var(--muted)}
+.tdmore{display:none}
+/* 김프 · 시장 폭과 자금 */
+.kpv{display:flex;align-items:baseline;gap:10px;font:12px var(--mono)}
+.kpv>b{font:700 26px var(--mono)}
+.spk line.z{stroke:var(--btn);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.mmc{display:flex;flex-direction:column;gap:14px}
+.mm{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mm+.mm{border-top:1px solid var(--line2);padding-top:12px}
+.mmh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card .mmh h2{margin:0;display:block}
+.mmt{font-size:11px;font-weight:700;white-space:nowrap}
+.mmv{display:flex;align-items:center;gap:12px}
+.mmv>b{font:700 22px var(--mono);white-space:nowrap}
+.mms{flex:1 1 auto;min-width:0}
+.mmf{font:11px var(--mono);color:var(--dim)}
+/* 근거 카드(접힘) */
+.nmore{margin:0}
+.nmore>summary{display:flex;align-items:center;min-height:44px;padding:0 16px;background:var(--card);border:1px solid var(--line);
+border-radius:12px;color:var(--muted)}
+.nmore>summary:hover{color:var(--text)}
+.nmore>.grid{margin-top:12px}
+@media (max-width:759px){
+.nowp>.verd{order:-1} /* 폰 시안: 판정 → 띠 */
+.verd h1{font-size:21px;line-height:1.35}
+.verd p{font-size:12px}
+.rcells{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rcell{padding:12px}
+.rcval{font-size:17px}
+.bpn{grid-template-columns:minmax(0,1fr)}
+.bpv{font-size:28px}
+.bcr{grid-row:auto;grid-column:1/-1}
+.bcr button{flex:1 1 0;height:40px;border-radius:8px}
+.card .bcp svg[role="img"]{height:150px}
+.card.today:not(.okon) .tdok{display:none}
+.card.today:not(.okon) .tdmore{display:flex;align-items:center;width:100%;min-height:44px;padding:0;border:0;
+border-top:1px solid var(--line2);background:none;color:var(--muted);font:inherit;font-size:12px;cursor:pointer}
+.mmc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mm+.mm{border-top:0;padding-top:0}
+.mmh{flex-direction:column;align-items:flex-start;gap:2px}
+.mmv{display:block}
+}
 header.site{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid #272b34}header.site .brand{font-weight:700;font-size:16px;color:#e6e6e6;text-decoration:none}header.site nav{display:flex;gap:4px;flex-wrap:wrap}header.site nav a{color:#9aa7b4;text-decoration:none;padding:6px 10px;border-radius:8px;font-size:14px}header.site nav a:hover{color:#e6e6e6;background:#1a1d24}header.site nav a[aria-current=page]{color:#e6e6e6;background:#1a1d24;box-shadow:inset 0 0 0 1px #272b34}footer.site{margin-top:32px;padding-top:16px;border-top:1px solid #272b34;color:#8b949e;font-size:12px}footer.site a{color:#8b949e}@media (pointer:coarse){header.site nav a{padding:11px 12px}}</style><style>/* upbit-tools 테마 레이어 — 생성기가 만든 HTML 위에 얹는다(생성 코드의 <style> 뒤에 로드).
+   대시보드·청산맵·인사이트·커뮤니티 공통. 2026-11 확정안(upbit-dashboard design/canvas-v1) 토큰.
    원칙: 판단을 먼저, 근거는 아래로 · 숫자는 고정폭 · 색은 의미에만(UI 크롬은 무채색).
-   색 규칙은 생성기와 동일: 초록=상승·정상, 빨강=하락·위험, 주황=주의. */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap");
+   색 규칙은 생성기와 동일: 초록=상승·정상, 빨강=하락·위험, 주황=주의.
+   대시보드 틀(사이드바·판정·패널) 규칙은 생성기 _CSS 에 있다 — 여기는 공통 토큰·카드·표·보조 페이지. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 
 :root{
-  --bg:#0a0d12;--card:#11151c;--card2:#141a22;--line:#1f2630;--line2:#1b212b;
-  --text:#e7eaf0;--muted:#a3adba;--dim:#8a94a2;--link:#8ab4f8;--accent:#e7eaf0;
+  --bg:#0b0e13;--side:#0f1319;--card:#12161d;--card2:#161c25;--line:#222934;--line2:#1b212b;
+  --text:#e6e9ef;--muted:#a3adba;--dim:#8592a3;--btn:#5f6b7c;--link:#8ab4f8;--accent:#e6e9ef;
   --pos:#3fbf7f;--neg:#f2555a;--warn:#e8b53b;--crit:#ff8a3d;--ok:#5fd3a6;
   --fs-lg:22px;--fs-xl:30px;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --sans:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
 html{background:var(--bg)}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);max-width:1440px;-webkit-font-smoothing:antialiased}
 a{color:var(--link);text-underline-offset:3px}
+a:hover{color:#c3d8fb}
 ::selection{background:#2b3a52}
 
 /* 숫자 — 5분마다 바뀌어도 자릿수가 흔들리지 않게 */
-.bv,.big,td.r,th.r,.ts,.strip b,.kpt b,.pgn button,.th-num,.tl-axis,.dur-axis{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.big,td.r,th.r,.ts,.strip b,.kpt b,.pgn button,.tl-axis,.dur-axis{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 
-/* ── 사이트 헤더 ── */
+/* ── 보조 페이지 머리말(청산맵·인사이트·커뮤니티) ── */
 header.site{position:relative;gap:8px 28px;padding:4px 0 14px;margin-bottom:12px;border-bottom:1px solid var(--line2)}
-header.site .brand{color:#fff;font-size:17px;letter-spacing:-.01em}
+header.site .brand{color:#fff;font:700 16px var(--mono);letter-spacing:-.02em}
 header.site nav{gap:18px}
 header.site nav a{padding:6px 0;border-radius:0;background:none!important;box-shadow:none!important;color:var(--muted)}
 header.site nav a:hover{color:#fff}
 header.site nav a[aria-current=page]{color:#fff;font-weight:600;box-shadow:inset 0 -2px 0 #fff!important}
-
-/* ── 제목·상태 줄 ── */
 body>h1{font-size:20px;letter-spacing:-.01em;margin:4px 0 2px}
 body>.sub{font-size:12px;color:var(--dim)}
-.th-live{display:inline-flex;align-items:center;gap:6px;margin-right:8px;padding:2px 9px;border-radius:999px;
-  background:#10231d;border:1px solid #1c3a30;color:var(--ok);font-size:11px;font-weight:600;vertical-align:1px}
-.th-live::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.th-live.stale{background:#2a1a10;border-color:#4a2c16;color:var(--crit)}
-
-/* ── 거시 지표 줄: 흐르는 티커 → 고정 셀 ── */
-.strip{border-radius:14px;background:var(--card);border-color:var(--line);cursor:default}
-.strip.th-static .track{animation:none!important;display:flex;flex-wrap:wrap;padding:0;white-space:normal;width:100%}
-.strip.th-static .track>span{display:contents;padding:0}
-.strip .th-cell{flex:1 1 150px;padding:10px 16px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);
-  color:var(--muted);font-size:12px;line-height:1.55;margin:0 -1px -1px 0}
-.strip .th-cell b{display:block;font-size:15px;font-weight:600;color:var(--text)}
-@media (max-width:640px){
-  .strip.th-static .track{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-  .strip .th-cell{flex:0 0 auto;border-bottom:0}
-}
-
-/* ── 탭: 파란 알약 → 밑줄 (파랑은 정보색이지 '선택'색이 아니다) ── */
-.tabs{gap:24px;border-bottom:1px solid var(--line2);padding:0;margin-bottom:20px;background:rgba(10,13,18,.92);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.tabs button{background:none;border:0;border-radius:0;padding:12px 2px;color:var(--muted);font-family:inherit;
-  box-shadow:inset 0 -2px 0 transparent;transition:color .15s,box-shadow .15s}
-.tabs button:hover{color:#fff}
-.tabs button.on{background:none;color:#fff;font-weight:600;box-shadow:inset 0 -2px 0 #fff;border:0}
-
-/* ── 상단 밴드: BTC 를 주인공으로 ── */
-.band{gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr))}
-.bt{border-radius:14px;padding:16px 18px;background:var(--card);border-color:var(--line)}
-.bl{color:var(--dim);letter-spacing:.02em}
-.bv{font-size:26px}
-.bs{color:var(--muted)}
-.spk{height:34px;stroke:#c9d6e8}
-@media (min-width:900px){
-  .band{grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,1fr))}
-  .band>.bt:first-child{grid-row:span 2;padding:22px 24px}
-  .band>.bt:first-child .bv{font-size:44px;line-height:1.1;margin:4px 0}
-  .band>.bt:first-child .bs{font-size:14px}
-  .band>.bt:first-child .spk{height:120px;stroke-width:2}
-}
-.band>.bt.th-judge{background:var(--card2)}
-.band>.bt.th-judge .bv{font-size:20px;overflow:visible}
-@media (max-width:899px){.band{grid-template-columns:repeat(2,minmax(0,1fr))}.band>.bt:first-child{grid-column:1/-1}.band>.bt:first-child .spk{height:64px}}
-.th-badge{display:inline-block;padding:2px 10px;border-radius:6px;font-family:var(--mono);font-size:.82em;font-weight:600;color:#0a0d12;vertical-align:.08em}
-.th-bull-highvol{background:#3fbf7f}.th-bull-lowvol{background:#9fe2bf}
-.th-bear-highvol{background:#f2555a}.th-bear-lowvol{background:#f7a8ab}
 
 /* ── 카드 ── */
-.grid{gap:16px;grid-auto-flow:row dense} /* 넓은 카드 뒤에 생기는 빈 칸을 뒤 카드로 채운다 */
-.card{background:var(--card);border-color:var(--line);border-radius:14px;padding:20px}
-.card h2{font-size:15px;letter-spacing:-.005em;margin-bottom:14px}
+.grid{gap:12px;grid-auto-flow:row dense} /* 넓은 카드 뒤에 생기는 빈 칸을 뒤 카드로 채운다 */
+.card{background:var(--card);border-color:var(--line);border-radius:12px;padding:16px}
+.card h2{font-size:14px;font-weight:700;letter-spacing:-.005em;margin-bottom:12px}
 .card h2 .tt .ic{color:var(--dim)}
-.card h3{color:var(--text);font-size:14px}
+.card h3{color:var(--text);font-size:13px}
 .kv{color:#b8c1cc;line-height:1.6}
 .hint{color:var(--dim)}
 .big{font-size:30px}
 .ts{color:var(--dim)}
 details>summary{color:var(--muted);padding:6px 0}
 details>summary:hover{color:var(--text)}
+.vbar{border-radius:12px;margin:0 0 12px}
 
 /* 표 (대시보드 카드 안만 — 보조 페이지 표는 원래 모양 유지) */
-.card table{font-size:13px;background:linear-gradient(90deg,var(--card) 30%,transparent) left/24px 100%,
+.card table{font-size:12px;background:linear-gradient(90deg,var(--card) 30%,transparent) left/24px 100%,
   linear-gradient(270deg,var(--card) 30%,transparent) right/24px 100%,
   radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.7),transparent) left/12px 100%,
   radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.7),transparent) right/12px 100%;
   background-repeat:no-repeat;background-attachment:local,local,scroll,scroll}
-.card th{color:var(--dim);font-size:12px;font-weight:500;padding:8px 6px;border-bottom:1px solid var(--line)}
+.card th{color:var(--dim);font-size:12px;font-weight:500;padding:6px 6px;border-bottom:1px solid var(--line)}
 .card td{padding:9px 6px;border-bottom:1px solid var(--line2)}
 .card th:first-child,.card td:first-child{padding-left:0}.card th:last-child,.card td:last-child{padding-right:0} /* 가로 여백 절약 — 스크롤 줄이기 */
 .card th:first-child,.card td:first-child{background:var(--card)}
-.card tbody tr:hover td{background:#161c25}
+.card tbody tr:hover td{background:var(--card2)}
 body>main th{color:var(--dim)}body>main th,body>main td{border-bottom-color:var(--line2)}
 
 /* 버튼·입력 */
-.fb,.pgn button{border-color:#2a3340;color:#c9d1dc;border-radius:8px;font-family:inherit}
-.fb:hover,.pgn button:hover:not(:disabled){border-color:#5a6575;color:#fff}
-.pgn button.on{background:#e7eaf0;border-color:#e7eaf0;color:#0a0d12}
+.fb,.pgn button{border-color:var(--btn);color:var(--muted);border-radius:6px;font-family:var(--mono)}
+.fb:hover,.pgn button:hover:not(:disabled){border-color:#8592a3;color:#fff}
+.pgn button.on{background:var(--text);border-color:var(--text);color:#0a0d12}
 .pcf input,.pcf select,.pcf textarea{background:#0e1218;border-color:#2a3340;border-radius:8px;font-family:var(--mono)}
 .pcf input:focus,.pcf select:focus,.pcf textarea:focus{outline:2px solid var(--link);outline-offset:1px;border-color:transparent}
 .kpt{background:#0e1218;border-color:var(--line);border-radius:10px}
-#newbar{background:#e7eaf0;color:#0a0d12;font-weight:600;font-family:inherit}
+#newbar{background:var(--text);color:#0a0d12;font-weight:600;font-family:inherit}
 .stalebar{border-radius:10px}
+.spk{stroke:#c9d6e8}.spk circle{fill:#c9d6e8}
 
-/* ── 오늘 볼 것: 심각도 순 목록 ── */
-.th-sev{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 6px;font-size:12px}
-.th-sev span{padding:1px 9px;border-radius:999px;border:1px solid}
-.th-sev .s-crit{background:var(--crit);border-color:var(--crit);color:#0a0d12;font-weight:600}
-.th-sev .s-warn{color:var(--warn)}
-.th-sev .s-info{color:var(--muted);border-color:#3a4452}
-.th-sev .s-ok{color:var(--ok);border-color:#1c3a30}
-.card.th-today .kv{display:flex;align-items:baseline;gap:10px;margin:0;padding:11px 0;border-top:1px solid var(--line2);font-size:14px}
-.card.th-today .kv>.th-body{flex:1;min-width:0}
-.card.th-today .kv::after{margin-left:auto;padding-left:8px;font-size:11px;white-space:nowrap}
-.card.th-today .kv.s-crit::after{content:"긴급";color:var(--crit);font-weight:600}
-.card.th-today .kv.s-warn::after{content:"주의";color:var(--warn)}
-.card.th-today .kv.s-info::after{content:"참고";color:var(--dim)}
-.card.th-today .kv.s-ok::after{content:"정상";color:var(--ok)}
-.card.th-today .kv.s-crit .neg{color:var(--crit)}
-
-/* ── 국면 타임라인·지속 분포 ── */
+/* ── 국면·변곡 카드 타임라인(theme.js)·지속 분포 막대(생성기 _dur_bar, .sm = 판정 근거 칸) ── */
 .th-tl{margin:6px 0 14px}
 .th-tl .lbl{font-size:12px;color:var(--dim);margin-bottom:6px}
 .th-tl .bar{display:flex;gap:2px;height:32px;border-radius:8px;overflow:hidden}
@@ -336,6 +412,9 @@ body>main th{color:var(--dim)}body>main th,body>main td{border-bottom-color:var(
 .th-dur .now{top:0;width:3px;height:34px;border-radius:2px;background:var(--text)}
 .th-dur .max{right:0;top:11px;width:2px;height:12px;background:#5a6575}
 .dur-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-top:4px}
+.th-dur.sm{margin:0}.th-dur.sm .track{height:18px}.th-dur.sm .base{top:8px}
+.th-dur.sm .iqr{top:4px;height:10px;border-radius:2px}.th-dur.sm .med{top:2px;height:14px}
+.th-dur.sm .now{height:18px;border-radius:1px}.th-dur.sm .max{display:none}
 .th-split{display:flex;gap:2px;height:14px;border-radius:4px;overflow:hidden;margin:8px 0 4px}
 
 /* ── 보조 페이지(인사이트·커뮤니티) ── */
@@ -348,11 +427,9 @@ ul.links li:hover{border-color:#2f3946}
 footer.site{border-top-color:var(--line2);color:var(--dim)}
 
 @media (max-width:480px){
-  .tabs{gap:18px}
-  .bv{font-size:22px}
-  .card{padding:16px}
+  .big{font-size:24px}
+  .card{padding:14px}
 }
-@media (prefers-reduced-motion:reduce){.tabs button{transition:none}}
 </style><script>
 function kTouch(box,show,hide){
  var pt='mouse';
@@ -379,7 +456,7 @@ background:var(--card);color:var(--text);font-size:var(--fs-sm);cursor:pointer;z
 .lmguide{margin:0;padding-left:18px;line-height:1.7}.lmguide li{margin:6px 0}
 .lms{font-size:var(--fs-sm);margin:6px 0 2px;line-height:1.7}.lms b{color:var(--text)}
 .lml{color:var(--dim);font-size:var(--fs-xs);margin-bottom:4px}
-</style></head><body><header class="site"><a class="brand" href="./">upbit-tools</a><nav><a href="./">대시보드</a><a href="liqmap.html" aria-current="page">청산맵</a><a href="insights.html">인사이트</a><a href="community.html">커뮤니티·링크</a></nav></header><h1>BTC·ETH 청산맵</h1><div class='sub'>갱신 11-20 19:00 KST · 바이낸스 USDT 무기한 기준 추정 + 실제 청산</div><nav class="pgn"><span class="pgs"><button data-p="0">초단기 4시간</button><button data-p="1">단기 24시간</button><button data-p="2">중기 7일</button><button data-p="3">장기 30일</button></span></nav><div class="lmgrid"><section class="card kchart lmc"><h2>BTC <span class="ts">USDT 무기한 · 마지막 봉 11-20 10:00 UTC</span></h2><div class="lms"></div><div class="lml"></div><div class="hint">남은 추정 청산 — 아래(빨강) = 롱 청산, 위(초록) = 숏 청산, 점선 = 현재가부터 누적</div><div class="lm1"></div><div class="hint">기간 중 청산 — 추정(회색 막대) vs 실제(노란 선), 각자 최대 = 1 로 모양만 비교</div><div class="lm2"></div><div class="hint lmo"></div><div class="ktip" style="display:none"></div><button class="lmz" type="button" aria-label="크게 보기">⤢ 크게</button></section><section class="card kchart lmc"><h2>ETH <span class="ts">USDT 무기한 · 마지막 봉 11-20 10:00 UTC</span></h2><div class="lms"></div><div class="lml"></div><div class="hint">남은 추정 청산 — 아래(빨강) = 롱 청산, 위(초록) = 숏 청산, 점선 = 현재가부터 누적</div><div class="lm1"></div><div class="hint">기간 중 청산 — 추정(회색 막대) vs 실제(노란 선), 각자 최대 = 1 로 모양만 비교</div><div class="lm2"></div><div class="hint lmo"></div><div class="ktip" style="display:none"></div><button class="lmz" type="button" aria-label="크게 보기">⤢ 크게</button></section></div><section class="card"><h2>청산맵 보는 법</h2><ul class="lmguide"><li><b>무엇인가</b> — 바이낸스 BTC·ETH 무기한 선물에서 레버리지 포지션이 강제청산될 것으로 추정되는 가격대다. 막대가 클수록 그 가격에 청산 물량이 많이 몰려 있다는 뜻이다.</li><li><b>위 차트 = 아직 안 터진 청산</b> — 가로축은 가격(구간 아래 경계), 흰 점선 세로줄은 현재가다. 현재가 <span class='neg'>아래 빨간 막대 = 롱 청산가가 몰린 자리</span>(가격이 내려와 닿으면 롱이 강제로 팔린다), 현재가 <span class='pos'>위 초록 막대 = 숏 청산가가 몰린 자리</span>(가격이 올라가 닿으면 숏이 강제로 사들여진다).</li><li><b>점선 곡선 = 누적</b> — 현재가에서 그 가격까지 가는 동안 터질 것으로 추정한 금액의 합이다. 차트 위 '막대 최대'·'누적 최대'가 가장 높은 막대와 누적선 끝의 금액이다. OI 가 늘 때 롱·숏을 같은 양으로 잡으므로, 위·아래 한쪽이 더 큰 것은 그 뒤 가격이 반대쪽 청산가를 더 많이 지나갔다는 뜻이다(최근 가격 경로).</li><li><b>아래 차트 = 이 기간에 실제로 터진 자리</b> — 회색 막대는 추정, 노란 선은 바이낸스 강제청산 실제 기록이다. 둘의 모양이 비슷할수록 추정이 그 기간을 잘 따라간 것이다. 금액 단위가 달라 각자 가장 큰 값을 같은 높이로 맞췄다(금액은 눌러서 확인). 노란 선 기록은 2026-10-01부터이고, 최근 30일 중 146시간은 기록이 비어 있다(서버 정지 또는 청산 없음). 종목마다 1초에 1건만 기록되는 표본이라 연쇄 청산 때는 적게 잡힌다.</li><li><b>얼마나 맞나</b> — 위치: 10-01~11-02 실제 청산과 비교한 4시간 창 123개에서, 가격이 지나간 구간 안에서는 맵이 크다고 한 칸에서 실제 청산도 컸다(순위상관 0.50). 다만 '시작가에서 멀수록 많다'(0.40)보다 나은 창은 54%로 차이가 작다. 방향: 2021-12~2026-08 과거 판정에서 위·아래 중 무거운 쪽으로 ±3% 를 먼저 찍은 비율은 BTC 50%·ETH 50% — 물량 차이로 가격이 갈 쪽은 알 수 없다(docs/LIQMAP-LEVERAGE.md · LIQMAP-DIRECTION-PREREG.md).</li><li><b>맨 위 숫자</b> — 현재가에서 ±2%·±5% 안에 쌓인 롱·숏 청산 합과 어느 쪽이 몇 배 큰지, 그리고 가장 가까운 큰 덩어리(그 방향에서 가장 큰 막대의 절반 이상인 막대 중 현재가에 가장 가까운 것)의 거리·가격·금액이다.</li><li><b>실시간</b> — 현재가와 누적·맨 위 숫자는 5초마다 바이낸스 마크가격으로 다시 계산된다. 페이지를 연 뒤 들어온 실제 강제청산은 위 차트 바닥에 점으로 찍힌다(빨강 = 롱 청산, 초록 = 숏 청산, 클수록 큰 금액). 막대는 서버가 5분마다 다시 계산하고, 이 공개 페이지는 30분마다 올라온다.</li><li><b>기간 버튼</b> — 초단기 4시간은 최근 4시간 사이 열린 포지션, 단기 24시간은 최근 하루 사이 새로 열린 포지션이라 현재가 가까운 자리, 장기 30일은 오래 쌓인 먼 자리까지 본다. 기간이 길수록 가격 범위(±4·8·15·25%)와 막대 한 칸의 폭(0.1·0.2·0.5·1%)이 넓다. 처음 열면 단기 24시간이 선택돼 있다.</li><li><b>누르거나 마우스를 올리면</b> — 그 구간의 가격, 남은 롱·숏 금액, 현재가부터 누적, 이 기간의 추정·실제 청산 금액이 뜬다. ⤢ 크게를 누르면 화면 전체로 커지고, 폰은 가로로 돌리면 더 넓게 보인다.</li><li><b>읽는 요령</b> ① 절대 금액보다 위·아래의 상대 크기와 순위를 본다 — 금액은 추정 가정에 따라 몇 배씩 달라진다. ② 현재가 바로 옆 작은 막대들은 늘 생기고 늘 쓸린다 — 크기를 비교할 땐 가까운 거리 안의 큰 덩어리를 본다. ③ 큰 덩어리가 쓸리면 위 차트에서 사라지고 아래 차트로 넘어간다 — 그때 선물 지표 탭의 OI 급감·펀딩 변화를 같이 본다. ④ 차트 아래 '표시 범위 밖' 줄은 화면 밖 먼 가격대 물량이다.</li></ul></section><script type="application/json" id="lmdata">{"coins":[{"sym":"BTCUSDT","name":"BTC","px":61767.3,"last":"2026-11-20T10:00:00+00:00","age_min":1,"periods":[{"key":"h4","label":"\ucd08\ub2e8\uae30 4\uc2dc\uac04","real":{"size":50,"k0":1185,"nb":100,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4670,25942,13723,145187,45177,18746,72091,13778,2721,2290,558,1239,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7031,4999,31935,29496,37438,148231,40652,116092,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[0,20799,9644,19052,29916,52639,2511,15180,10528,726,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76417,75242,79133,183128,172417,376529,35672,127155,45119,7445,2009,3969,6233,183424,80489,161136,250086,360833,96769,105817,38776,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[41798385,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85561,79966,71109,250237,438615,22834,129834,87113,21491,2431,3155,2040,151820,70473,138921,53019,482160,85099,110414,34100,42936,5295,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10480,10319,10853,25115,22645,52639,2511,15180,9754,1499,0],"rs_out":[0,41798385],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19972,42413,6487,6022,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87692,0,0,269474,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"short","label":"\ub2e8\uae30 24\uc2dc\uac04","real":{"size":100,"k0":568,"nb":100,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2145017,1402216,4156249,11425177,2645789,2393867,2626692,2648507,570825,684642,1971654,784548,1400882,736925,1482690,624001,667739,1627587,1280773,344587,198740,82429,429126,131500,553392,218312,26056,20139,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,67],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16414,136141,620608,376163,452703,317845,588113,478381,877668,784662,225154,705710,622755,14054,266232,173100,375218,186056,314994,922793,53417,50105,75749,64255,382963,258459,400883,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[2111780,1460276,1607788,3548126,1978234,0,2002069,2569206,7056910,2602564,1160845,0,0,0,0,0,0,638142,2370720,2207510,835470,1425300,2649375,2652344,2251118,1883209,1576503,1461840,667635,462582,562531,1055426,316382,558119,1153207,57355,1541550,1178448,1240393,1534503,2053501,2620786,2101985,2351810,1484223,628517,202586,38776,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[439171327,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165527,330652,804662,921736,286140,912896,1120954,725620,1787157,565864,2061659,1082584,914659,775353,840945,981768,849801,306869,689787,534685,528063,478637,1355205,2794437,2966053,1388017,2145698,639467,3449095,2901976,1690399,2466977,221557,2528252,384603,558604,620521,170923,897441,242972,469824,411660,944673,560991,0,520037,214732,1864570,421080],"rs_out":[0,466246671],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2162085,10454653,14905065,14976050,24257541,17752860,14889800,15701473,8022121,1437910,759083,1225071,603443,912021,761145,1465084,870668,802498,153375,605645,475256,1310986,486709,325294,158121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,370324,1250234,1032549,364051,22682,1877,1560339,1145160,1634262,0,354597,215413,8880,116110,305049,255189,23390,0,0,0,0,0,1169469,624153,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"mid","label":"\uc911\uae30 7\uc77c","real":{"size":200,"k0":262,"nb":94,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3547233,15581426,5039656,5275198,12556182,10911420,10168224,10228092,8379357,11864329,11470966,12799879,14637548,11689645,10553746,16723976,16114858,9234451,7109157,15287771,24948484,5518117,4591368,4116180,4905681,5631372,3580535,5555696,7182780,5993218,6107369,76441,3303499,3041438,3723282,1560905,2552626,2708453,1179104,728260,287219,221401,534168,95583,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,152555,996771,770548,1085995,2000808,1610996,3642597,3382352,2677852,4049455,4932173,3687784,4203124,4791270,5311966,4987203,6084684,8704351,9902288,9389776,6477786,6659709,3589063,824504,73258,36878,145068,474706,766577,842305,599011,249592,68,369419,887750,984633,696449,2145146,563532,1588505,2481879,946003,338666,1659792,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[17380220,7589383,5262924,3755478,1029879,1204238,12261288,8091339,6445642,1134911,1728717,3843208,3653432,2615715,3278126,15696328,16523402,16254529,20069676,18400069,28950977,22982737,10251208,24563194,12522749,22270082,28370882,17797679,32233015,26607187,23676496,26635164,16860485,13671238,8373071,8307908,8983028,5999478,4490339,10797565,9735183,13638438,11995775,9784343,4621434,241362,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1295382991,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165527,1135315,1207876,2033850,2512777,2627523,1997243,1616299,1831568,996655,1062748,3528906,7445501,5573176,5128130,5924510,5227887,8307026,6745865,7166041,4662462,8268459,5339321,4638574,8553742,6053435,6352017,16150587,19421498,13764429,25602467,21756872,16767812,27485063,16287506,14654762,19540347,14315570,11794502,15575201,30195394,17184381,21217832,27183162,21001727,19918302,16496106],"rs_out":[0,1463844602],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12616738,29881115,42010401,30591273,54009420,63955115,44202602,49724238,26144863,22044464,21188412,12178365,17460797,28984385,40537241,46836797,56852780,63412716,47674655,44009467,30851013,40616448,38709230,35721376,27085722,26670989,33640243,36505235,28747384,25775836,29565442,29768262,9461710,1774070,1248957,1595735,2237935,907565,746566,30185,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,370324,2282783,386732,1562216,3337797,1335696,4241929,3807367,2258608,5889150,4776084,3776598,4261951,2745809,3756295,8198441,6501060,6195342,8162609,4834861,4169816,2739464,462565,0,0,0,3841,175731,852632,503190,0,0,0,312550,163296,4085,221042,227405,621472,1050860,1728374,2993920,1227234,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"long","label":"\uc7a5\uae30 30\uc77c","real":{"size":500,"k0":92,"nb":63,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7703482,21740032,27436363,24806912,26050100,36412267,36490965,23245222,42871929,11589990,12774869,14081196,12176285,19137446,10316332,64611284,35581141,19918322,15706075,12756980,14091261,15785985,21057447,19558386,16434853,23666828,12399160,4721984,1077014,21961469,25185384,63922532,57519250],"xl_out":[0,317660613],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16414,1903459,3490572,8232175,10120753,9429637,12535539,17343935,22919685,13098937,897829,656585,2199513,258040,3011102,6658703,5077196,3125834,1703285,24207,450227,1647749,671404,210562,2473975,5014965,9225026,13871551,4510443,1788075,2710129,5034274,15055624],"xs_out":[0,191603429]},"sets":{"A":{"rl":[21104913,1842052,5205249,12096189,4415517,11985414,60586013,114120551,127546028,114024936,127114983,152983467,105076704,27420879,21277703,59851875,25824405,27525375,39322739,47704713,57535938,59649769,60604453,71066057,78876214,81299259,80814483,74321546,63449573,85833744,45257329,38776,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1086742068,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165527,3256087,6261255,4595309,2909203,13541586,14058638,17343807,14765473,16577267,16276265,34169353,47121645,52128558,44823456,39887481,51533533,54525949,52715631,42794508,17072319,11403600,3729718,24124922,46317443,63399342,91340324,80818784,63804858,86096716,87464509,86630233],"rs_out":[0,2748838150],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27521803,87577724,141319451,96716788,49851083,52005341,112778655,143103046,95840899,98172553,83481772,99960352,100606949,88278054,78459448,91517857,59569690,70537823,77426677,57583423,34553080,35303818,95359771,114962194,103480261,106248644,88968453,71689355,63522647,66971948,93206246,94635712,79955015],"sl_out":[0,430676773],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2653107,3094108,7770262,9301108,11206699,8286940,17176616,17171750,8930342,462565,3841,1531554,0,312550,2011276,6758129,5122837,1227234,0,0,1744374,923946,0,1008156,2657301,10118435,8922200,8854092,4804821,7808632,3072515,13479511],"ss_out":[0,335973051]}}}]},{"sym":"ETHUSDT","name":"ETH","px":1751.25,"last":"2026-11-20T10:00:00+00:00","age_min":1,"periods":[{"key":"h4","label":"\ucd08\ub2e8\uae30 4\uc2dc\uac04","real":{"size":2,"k0":840,"nb":71,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,365,14876,9322,164422,499960,15085,8149,22774,14953,6161,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,4317,174596,49202,98051,85924,32849,115394,327327,42935,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[2277,119,2347,2516,4674,490,713,310,0,0,0,0,0,0,0,0,9703,171445,0,6152,117279,93520,92555,0,31188,181211,152873,0,33273,138766,227508,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[30616993,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6716,97621,29904,90271,80426,40080,27142,136785,34660,6152,117279,93520,92555,0,21732,9456,0,0,0,0,0,0,0,0,3662,2277,119,472,4391,3735,1430,124,9011,114361,28978],"rs_out":[0,30461880],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56094,35550,80440,6978,50608,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,109440,34406,14897,302460,201948,63424,49630,328512,287625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"short","label":"\ub2e8\uae30 24\uc2dc\uac04","real":{"size":5,"k0":322,"nb":57,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1463631,2693114,4335486,1403884,1677221,6248774,5710786,8250021,4984682,1945910,1130664,1790302,993335,553078,413343,972069,597236,531759,6249,3460,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,66539,215695,156551,333986,612616,384165,746238,1243853,2765707,2132637,38310,341051,477107,607483,74916,21265,422133,272960,757791,395563,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[509888,142576,0,2456827,1186819,1969203,40817,141426,233331,393912,295982,318224,222916,390868,318577,98692,270682,420658,232127,491583,603355,450466,277216,170740,338831,172038,227508,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[249812727,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11346,389912,449634,391379,927544,226664,688543,469606,142164,259135,520409,780605,428228,841165,399001,626564,478465,482155,269985,83477,240143,260075,75528,22367,11583,111232,606869,1039229,1106578],"rs_out":[0,253941591],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,991114,2371922,3920953,2228093,1531804,975796,2298715,1305140,461050,817358,790320,1259853,961751,583458,543042,2008413,1159873,486466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63783,262875,293702,876388,945307,322506,905109,652931,355817,0,238606,294001,590336,0,0,0,263810,1301998,352047,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"mid","label":"\uc911\uae30 7\uc77c","real":{"size":10,"k0":148,"nb":54,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5162476,11462992,11471266,17931368,31931812,19108943,20528789,12688119,31003703,25797465,27668911,11159571,15112072,7234073,3108026,8202709,9593147,7077628,4199316,3846601,3493134,3969783,2473090,2303971,607970,412625,131580,0,0,28,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10523,523462,1068096,2417375,3058358,7007495,4138417,4071821,4418435,7130869,8360386,12449730,13113582,2583017,2810155,982466,3787,59952,461705,1000242,698852,1169700,303497,1052936,6935584,983426,18889435,908353,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[6328163,490589,2796366,2177823,7287908,6760080,4876448,7280087,8469084,11792318,12479523,14245817,9400098,13317787,18436244,28737221,20727724,14963896,4406431,4641269,1757797,2784035,3942871,3052198,447956,510869,227508,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1292977632,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,401258,841013,1154208,1158150,401299,1301014,1856468,3169352,3999024,3693614,1945972,2168810,3059264,4994554,7517801,7993059,7932756,14424147,10886007,9239678,11801397,14438154,23912548,20642705,14819208,11264956,3519535],"rs_out":[0,1360536191],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16129869,18534843,10562375,17661113,12394405,11848617,21381483,21799689,60507645,57323848,44979515,42093226,21951041,32456277,33070620,35736037,24573064,27888682,50527582,2439258,1519228,2301161,1355742,634832,994373,106464,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,478414,998911,2548304,2020647,3797685,3955928,4394497,5870243,7038203,9524450,7875437,8164864,4934743,2732406,1104953,0,0,157019,909321,704068,439096,638448,945593,994052,2398946,388888,439437,0,0,0],"ss_out":[0,0]}}},{"key":"long","label":"\uc7a5\uae30 30\uc77c","real":{"size":20,"k0":65,"nb":45,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5162476,22934258,49863179,39637733,43691821,53466376,26271644,10342099,17795856,14138874,17291389,16685761,20686369,4982021,20296016,21491995,13171488,35898925,8307239,15185549,8942932,6315039,140309,9745131,9318228],"xl_out":[0,370883138],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10523,1591558,5475733,11145912,8490256,15491255,25563312,5393171,986253,521656,1801528,2366989,8597011,20256624,1528124,2349486,2437985,3527276,7462529,4923757,1971823,4887427,1926738,0,542497],"xs_out":[0,131316192]},"sets":{"A":{"rl":[18733915,6498328,32063386,29102451,60398825,77160696,88909369,117020056,74064741,58330806,74765572,56783690,67874108,51786316,49437580,63128418,81617615,70968391,30547141,19223943,25320737,958826,227508,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1501284590,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,401258,1995221,1559449,3157482,7168376,5639586,5228074,12512355,15925815,25310154,21041075,38350702,35720509,15786832,5702353,6832680,26708444,39294535,50984886,45864926,85044908,73982063,41301235],"rs_out":[0,2597634595],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20566622,32050644,33615388,34454260,93303934,118091882,74323274,69439717,60731746,82407779,59163470,70316159,68747413,35122614,24725746,48906342,66547778,47017858,37440494,37964874,34518347,58033520,41125990,51979271,89147720],"sl_out":[0,383275813],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1477325,4568950,7753613,10264740,16562653,16040300,7667149,1104953,157019,1737253,2501167,4140388,2787834,530677,2602897,2228209,2240646,6463921,4830818,1990501,5045937,3142094,10029,0],"ss_out":[0,223232968]}}}]}],"def":"A","p0":1}</script><script>
+</style></head><body><header class="site"><a class="brand" href="./">upbit-tools</a><nav><a href="./">대시보드</a><a href="liqmap.html" aria-current="page">청산맵</a><a href="insights.html">인사이트</a><a href="community.html">커뮤니티·링크</a></nav></header><h1>BTC·ETH 청산맵</h1><div class='sub'>갱신 11-20 19:10 KST · 바이낸스 USDT 무기한 기준 추정 + 실제 청산</div><nav class="pgn"><span class="pgs"><button data-p="0">초단기 4시간</button><button data-p="1">단기 24시간</button><button data-p="2">중기 7일</button><button data-p="3">장기 30일</button></span></nav><div class="lmgrid"><section class="card kchart lmc"><h2>BTC <span class="ts">USDT 무기한 · 마지막 봉 11-20 10:10 UTC</span></h2><div class="lms"></div><div class="lml"></div><div class="hint">남은 추정 청산 — 아래(빨강) = 롱 청산, 위(초록) = 숏 청산, 점선 = 현재가부터 누적</div><div class="lm1"></div><div class="hint">기간 중 청산 — 추정(회색 막대) vs 실제(노란 선), 각자 최대 = 1 로 모양만 비교</div><div class="lm2"></div><div class="hint lmo"></div><div class="ktip" style="display:none"></div><button class="lmz" type="button" aria-label="크게 보기">⤢ 크게</button></section><section class="card kchart lmc"><h2>ETH <span class="ts">USDT 무기한 · 마지막 봉 11-20 10:10 UTC</span></h2><div class="lms"></div><div class="lml"></div><div class="hint">남은 추정 청산 — 아래(빨강) = 롱 청산, 위(초록) = 숏 청산, 점선 = 현재가부터 누적</div><div class="lm1"></div><div class="hint">기간 중 청산 — 추정(회색 막대) vs 실제(노란 선), 각자 최대 = 1 로 모양만 비교</div><div class="lm2"></div><div class="hint lmo"></div><div class="ktip" style="display:none"></div><button class="lmz" type="button" aria-label="크게 보기">⤢ 크게</button></section></div><section class="card"><h2>청산맵 보는 법</h2><ul class="lmguide"><li><b>무엇인가</b> — 바이낸스 BTC·ETH 무기한 선물에서 레버리지 포지션이 강제청산될 것으로 추정되는 가격대다. 막대가 클수록 그 가격에 청산 물량이 많이 몰려 있다는 뜻이다.</li><li><b>위 차트 = 아직 안 터진 청산</b> — 가로축은 가격(구간 아래 경계), 흰 점선 세로줄은 현재가다. 현재가 <span class='neg'>아래 빨간 막대 = 롱 청산가가 몰린 자리</span>(가격이 내려와 닿으면 롱이 강제로 팔린다), 현재가 <span class='pos'>위 초록 막대 = 숏 청산가가 몰린 자리</span>(가격이 올라가 닿으면 숏이 강제로 사들여진다).</li><li><b>점선 곡선 = 누적</b> — 현재가에서 그 가격까지 가는 동안 터질 것으로 추정한 금액의 합이다. 차트 위 '막대 최대'·'누적 최대'가 가장 높은 막대와 누적선 끝의 금액이다. OI 가 늘 때 롱·숏을 같은 양으로 잡으므로, 위·아래 한쪽이 더 큰 것은 그 뒤 가격이 반대쪽 청산가를 더 많이 지나갔다는 뜻이다(최근 가격 경로).</li><li><b>아래 차트 = 이 기간에 실제로 터진 자리</b> — 회색 막대는 추정, 노란 선은 바이낸스 강제청산 실제 기록이다. 둘의 모양이 비슷할수록 추정이 그 기간을 잘 따라간 것이다. 금액 단위가 달라 각자 가장 큰 값을 같은 높이로 맞췄다(금액은 눌러서 확인). 노란 선 기록은 2026-10-01부터이고, 최근 30일 중 146시간은 기록이 비어 있다(서버 정지 또는 청산 없음). 종목마다 1초에 1건만 기록되는 표본이라 연쇄 청산 때는 적게 잡힌다.</li><li><b>얼마나 맞나</b> — 위치: 10-01~11-02 실제 청산과 비교한 4시간 창 123개에서, 가격이 지나간 구간 안에서는 맵이 크다고 한 칸에서 실제 청산도 컸다(순위상관 0.50). 다만 '시작가에서 멀수록 많다'(0.40)보다 나은 창은 54%로 차이가 작다. 방향: 2021-12~2026-08 과거 판정에서 위·아래 중 무거운 쪽으로 ±3% 를 먼저 찍은 비율은 BTC 50%·ETH 50% — 물량 차이로 가격이 갈 쪽은 알 수 없다(docs/LIQMAP-LEVERAGE.md · LIQMAP-DIRECTION-PREREG.md).</li><li><b>맨 위 숫자</b> — 현재가에서 ±2%·±5% 안에 쌓인 롱·숏 청산 합과 어느 쪽이 몇 배 큰지, 그리고 가장 가까운 큰 덩어리(그 방향에서 가장 큰 막대의 절반 이상인 막대 중 현재가에 가장 가까운 것)의 거리·가격·금액이다.</li><li><b>실시간</b> — 현재가와 누적·맨 위 숫자는 5초마다 바이낸스 마크가격으로 다시 계산된다. 페이지를 연 뒤 들어온 실제 강제청산은 위 차트 바닥에 점으로 찍힌다(빨강 = 롱 청산, 초록 = 숏 청산, 클수록 큰 금액). 막대는 서버가 5분마다 다시 계산하고, 이 공개 페이지는 30분마다 올라온다.</li><li><b>기간 버튼</b> — 초단기 4시간은 최근 4시간 사이 열린 포지션, 단기 24시간은 최근 하루 사이 새로 열린 포지션이라 현재가 가까운 자리, 장기 30일은 오래 쌓인 먼 자리까지 본다. 기간이 길수록 가격 범위(±4·8·15·25%)와 막대 한 칸의 폭(0.1·0.2·0.5·1%)이 넓다. 처음 열면 단기 24시간이 선택돼 있다.</li><li><b>누르거나 마우스를 올리면</b> — 그 구간의 가격, 남은 롱·숏 금액, 현재가부터 누적, 이 기간의 추정·실제 청산 금액이 뜬다. ⤢ 크게를 누르면 화면 전체로 커지고, 폰은 가로로 돌리면 더 넓게 보인다.</li><li><b>읽는 요령</b> ① 절대 금액보다 위·아래의 상대 크기와 순위를 본다 — 금액은 추정 가정에 따라 몇 배씩 달라진다. ② 현재가 바로 옆 작은 막대들은 늘 생기고 늘 쓸린다 — 크기를 비교할 땐 가까운 거리 안의 큰 덩어리를 본다. ③ 큰 덩어리가 쓸리면 위 차트에서 사라지고 아래 차트로 넘어간다 — 그때 선물 지표 탭의 OI 급감·펀딩 변화를 같이 본다. ④ 차트 아래 '표시 범위 밖' 줄은 화면 밖 먼 가격대 물량이다.</li></ul></section><script type="application/json" id="lmdata">{"coins":[{"sym":"BTCUSDT","name":"BTC","px":61773.8,"last":"2026-11-20T10:10:00+00:00","age_min":3,"periods":[{"key":"h4","label":"\ucd08\ub2e8\uae30 4\uc2dc\uac04","real":{"size":50,"k0":1186,"nb":99,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4670,25942,13723,145187,45177,18746,72091,13778,2721,2290,558,1239,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7031,4999,31935,60287,37438,148231,40652,116092,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[20798,9644,19051,29915,63687,2511,12799,10527,726,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,76413,75239,79130,183120,172410,457085,18312,127149,45118,7445,2009,3969,6232,185719,80485,160633,250075,360818,188387,105813,38775,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[44047407,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85558,79962,71106,250226,530219,22833,110090,87110,21490,4733,2659,2040,151814,70470,138915,53017,482139,165667,93051,34098,42934,5295,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10480,10319,10852,25114,22644,63687,2511,12799,9754,1499,0],"rs_out":[0,44047407],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19972,42413,6487,6022,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87692,0,0,269474,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"short","label":"\ub2e8\uae30 24\uc2dc\uac04","real":{"size":100,"k0":568,"nb":100,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2145017,1402216,4156249,11425177,2645789,2393867,2626692,2648507,570825,684642,1971654,784548,1400882,736925,1482690,624001,667739,1627587,1280773,344587,198740,82429,429126,131500,553392,218312,26056,20139,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,67],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16414,136141,620608,376163,483494,317845,588113,478381,877668,784662,225154,705710,622755,14054,266232,173100,375218,186056,314994,922793,53417,50105,75749,63745,382963,239286,400883,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[2111691,1460215,1607721,3547977,1978151,0,2001985,2569098,6915374,2602455,1160796,0,0,0,0,0,0,638115,2370620,2207418,835435,1587765,2649263,2652233,2251023,1883130,1576437,1472829,667607,462563,562507,1055381,316368,558096,1153158,57352,1541485,1178398,1240341,1615011,2016727,2620676,2101896,2354013,1484161,628490,294199,38775,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[441389517,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165520,330638,896250,921697,288430,912858,1120907,725590,1867653,565840,2061573,1082539,914620,775321,840910,981727,849765,306856,689758,534662,539090,478617,1350254,2778532,2965806,1387562,2145608,801965,3448950,2883667,1690328,2466873,221547,2528145,384586,558581,620495,170916,897403,242962,469805,411053,942729,560968,0,520015,214723,1864492,384375],"rs_out":[0,468322484],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2162085,10454653,14905065,14976050,24257541,17752860,14889800,15701473,8022121,1437910,759083,1225071,603443,912021,761145,1465084,870668,802498,153375,605645,475256,1310986,486709,325294,158121,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,370324,1250234,1032549,364051,22682,1877,1560339,1145160,1634262,0,354597,215413,8880,116110,305049,255189,23390,0,0,0,0,0,1169469,624153,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"mid","label":"\uc911\uae30 7\uc77c","real":{"size":200,"k0":262,"nb":94,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3547233,15581426,5039656,5275198,12556182,10911420,10168224,10228092,8379357,11864329,11470966,12799879,14637548,11689645,10553746,16723976,16114858,9234451,7109157,15287771,24948484,5518117,4591368,4116180,4905681,5631372,3580535,5555696,7182780,5993218,6107369,76441,3303499,3041438,3723282,1560905,2552626,2708453,1179104,728260,287219,221401,534168,95583,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,152555,996771,801339,1085995,2000808,1610996,3642597,3382352,2677852,4049455,4932173,3687784,4203124,4791270,5311966,4987203,6084684,8704351,9902288,9389776,6477786,6659709,3589063,824504,73258,36878,145068,474706,766577,842305,599011,249592,68,369419,887750,984633,696449,2145146,563532,628838,2040878,946003,338666,1659792,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[17379490,7589064,5262703,3755321,1029836,1204187,12260773,8090999,6445371,1134863,1728644,3843046,3653278,2615605,3277989,15695669,16101073,16879544,20068833,18399296,28949761,22981772,10250777,24562162,12522223,22269147,28369690,17796931,32231661,26606069,23675501,26634046,17022302,13670664,8372719,8318609,8982651,5999226,4490151,10797112,9734774,13718437,11995271,9786234,4621240,332974,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1296937947,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165520,1226889,1210127,2033765,2593243,2627413,1997159,1616231,1831491,996613,1073753,3528758,7445188,5572942,5290440,5924261,5227668,8306677,6745581,7165740,4662266,8268111,5339097,4638380,8553383,6053181,6351750,16149909,19420682,14389549,25601392,21755958,16767108,27483908,16286822,14654146,19539526,14314969,11794007,15574547,30194125,17183660,21216941,27147444,21000845,19917465,16495413],"rs_out":[0,1464627848],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12616738,29881115,42010401,30591273,54009420,63955115,44202602,49724238,26144863,22044464,21188412,12178365,17460797,28984385,40537241,46836797,56852780,63412716,47674655,44009467,30851013,40616448,38709230,35721376,27085722,26670989,33640243,36505235,28747384,25775836,29565442,29768262,9461710,1774070,1248957,1595735,2237935,907565,746566,30185,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,370324,2282783,386732,1562216,3337797,1335696,4241929,3807367,2258608,5889150,4776084,3776598,4261951,2745809,3756295,8198441,6501060,6195342,8162609,4834861,4169816,2739464,462565,0,0,0,3841,175731,852632,503190,0,0,0,312550,163296,4085,221042,227405,0,577180,1728374,2993920,1227234,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"long","label":"\uc7a5\uae30 30\uc77c","real":{"size":500,"k0":92,"nb":63,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7703482,21740032,27436363,24806912,26050100,36412267,36490965,23245222,42871929,11589990,12774869,14081196,12176285,19137446,10316332,64611284,35581141,19918322,15706075,12756980,14091261,15785985,21057447,19558386,16434853,23666828,12399160,4721984,1077014,21961469,25185384,63922532,57519250],"xl_out":[0,317660613],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16414,1934251,3490572,8232175,10120753,9429637,12535539,17343935,22919685,13098937,897829,656585,2199513,258040,3011102,6658703,5077196,3125834,1703285,24207,450227,1647749,671404,210562,2473975,5014965,9225026,13871551,4510443,1788075,2710129,5034274,15055624],"xs_out":[0,191603429]},"sets":{"A":{"rl":[21104027,1841975,5205031,12095681,4415332,11984910,60583468,115098273,127540670,114020146,127109644,152977041,105072291,27419728,21276810,59849361,25823320,27524218,39321087,48266616,57533521,59647263,60601907,71063072,78872901,81458369,80811088,74329474,63446908,85910711,45349352,38775,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1087736866,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165520,3349874,6341563,4595116,2920131,13541017,14220572,17343079,14764853,16576571,16275581,34167917,47745364,52126368,44821574,39885806,51531368,54523659,52713417,42792710,17071602,11403121,3729561,24123909,47298014,63396679,91336488,80815390,63802178,86093100,87460836,86626595],"rs_out":[0,2749507558],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27521803,87577724,141319451,96716788,49851083,52005341,112778655,143103046,95840899,98172553,83481772,99960352,100606949,88258797,78459448,91517857,59569690,70537823,77426677,57583423,34553080,35303818,95359771,114962194,103480261,106248644,88968453,71689355,63522647,66971948,93176079,94635712,79955015],"sl_out":[0,430676773],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2653107,3094108,7770262,9301108,11206699,8286940,17176616,17171750,8930342,462565,3841,1531554,0,312550,2011276,6758129,5122837,1227234,0,0,1744374,923946,0,1008156,2657301,10118435,8922200,8854092,4804821,7808632,3072515,13479511],"ss_out":[0,335973051]}}}]},{"sym":"ETHUSDT","name":"ETH","px":1751.07,"last":"2026-11-20T10:10:00+00:00","age_min":3,"periods":[{"key":"h4","label":"\ucd08\ub2e8\uae30 4\uc2dc\uac04","real":{"size":2,"k0":840,"nb":71,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,365,14876,9322,164422,499960,15085,8149,22774,14953,6161,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,272,174596,49202,98051,85924,33578,115394,327327,42935,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[1614,119,2347,2516,5182,490,713,310,0,0,0,0,0,0,0,0,0,151222,0,6152,117279,93520,108031,0,31188,163317,115576,0,33273,138766,227508,28541,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[29768965,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6716,97621,29904,118812,80426,40080,17439,116562,34660,6152,117279,93520,108031,0,21732,9456,0,0,0,0,0,0,0,0,3344,1614,119,472,4391,4242,1430,124,899,97454,28978],"rs_out":[0,29639189],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,56094,35550,80440,6978,50608,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,96914,34406,14897,302460,201948,63424,49630,328512,287625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"short","label":"\ub2e8\uae30 24\uc2dc\uac04","real":{"size":5,"k0":322,"nb":57,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1463631,2693114,4335486,1403884,1677221,6248774,5710786,8250021,4984682,1945910,1130664,1790302,993335,553078,413343,972069,597236,531759,6249,3460,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,66539,215695,156551,333986,612616,384165,746967,1243853,2765707,2132637,38310,341051,477107,607483,74916,21265,422133,272960,685869,395563,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[509888,142576,0,2456827,1186819,1969203,40817,141426,233331,393912,295982,318224,235854,390868,318577,99199,270682,420658,232127,491583,603355,450466,292691,170740,338831,172038,256048,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[250707632,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11346,418453,449634,391379,927544,242140,688543,469606,142164,259135,520409,780605,428735,841165,399001,639502,478465,482155,269985,83477,240143,260075,75528,22367,11583,111232,606869,1039229,1106578],"rs_out":[0,254836497],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,991114,2371922,3920953,2228093,1531804,975796,2298715,1305140,461050,817358,790320,1259853,961751,583458,543042,2008413,1159873,486466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63783,262875,293702,876388,945307,322506,905109,652931,355817,0,238606,294001,590336,0,0,0,263810,1301998,352047,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"ss_out":[0,0]}}},{"key":"mid","label":"\uc911\uae30 7\uc77c","real":{"size":10,"k0":148,"nb":54,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5162476,11462992,11471266,17931368,31931812,19108943,20528789,12688119,31003703,25797465,27668911,11159571,15112072,7234073,3108026,8202709,9593147,7077628,4199316,3846601,3493134,3969783,2473090,2303971,607933,412625,131580,0,0,28,0],"xl_out":[0,0],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10523,523462,1068096,2417375,3059087,7007495,4138417,4071821,4418435,7130869,8360386,12449730,13113582,2583017,2810155,982466,3787,59952,461705,1000242,698852,1169700,303497,713733,939053,983426,18889435,908353,0,0,0],"xs_out":[0,0]},"sets":{"A":{"rl":[6328163,490589,2796366,2177823,7287908,6760080,4876448,7280087,8469084,11602429,12579352,14245817,9400098,13317787,18436244,28737221,20727724,14963896,4406431,4654208,1758304,2784035,3942871,3052198,463432,510869,256048,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1293269397,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,429798,841013,1169683,1158150,401299,1301014,1856975,3182290,3999024,3693614,1945972,2168810,3059264,4994554,7517801,7993059,8032585,14424147,10886007,9239678,11801397,14438154,23912548,20642705,14819208,11264956,3519535],"rs_out":[0,1360539306],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16129869,18534843,10562375,17661113,12394405,11848617,21381483,21799689,60507645,57323848,44979515,42093226,21951041,32456277,33070620,35736037,24573064,27888682,50527582,2439258,1519228,2301161,1355742,634832,994373,106464,0,0,0,0,0],"sl_out":[0,0],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,478414,998911,2548304,2020647,3797685,3955928,4394497,5870243,7038203,9524450,7875437,8164864,4934743,2732406,1104953,0,0,157019,909321,704068,439096,638448,638956,503469,2398946,388888,439437,0,0,0],"ss_out":[0,0]}}},{"key":"long","label":"\uc7a5\uae30 30\uc77c","real":{"size":20,"k0":65,"nb":45,"xl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5162476,22934258,49863179,39637733,43691821,53466376,26271644,10342099,17795856,14138874,17291389,16685761,20686369,4982021,20296016,21491995,13171488,35898925,8307239,15185549,8942932,6315039,140309,9745131,9318228],"xl_out":[0,370883138],"xs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10523,1591558,5476462,11145912,8490256,15491255,25563312,5393171,986253,521656,1801528,2366989,8597011,20256624,1528124,2349486,2437985,3527276,7462529,4923757,1971823,4887427,1926738,0,542497],"xs_out":[0,131316192]},"sets":{"A":{"rl":[18733915,6498328,32063386,29102451,60398825,77378492,88909369,117020056,74064741,58330806,74765572,56783690,67874108,51786316,49537409,63128418,81617615,70968391,30560079,19224450,25320737,974301,256048,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"rl_out":[1501861871,0],"rs":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,429798,2010697,1559449,3157989,7181314,5639586,5228074,12512355,16025644,25310154,21041075,38350702,35720509,15786832,5702353,6832680,26708444,39512331,50984886,45864926,85044908,73982063,41301235],"rs_out":[0,2598211876],"sl":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20566622,32050644,33615388,34454260,93303934,118091882,74322751,69439717,60731746,82407779,59163470,70316159,68747413,35122614,24725746,48906342,66547778,47017858,37440494,37964874,34518347,58033520,41125990,51979271,89146564],"sl_out":[0,383190894],"ss":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1477325,4568950,7753613,10264740,16562653,16040300,7667149,1104953,157019,1737253,2501167,4140388,2787834,530677,2602897,2228209,2240646,6463921,4830818,1990501,5045937,3142094,10029,0],"ss_out":[0,223232968]}}}]}],"def":"A","p0":1}</script><script>
 var D=JSON.parse(document.getElementById('lmdata').textContent),P=D.p0||0,S=D.def,LQ={},LIVE={t:null,ws:'연결 중'};
 function usd(v){var a=Math.abs(v);return a>=1e9?'$'+(v/1e9).toFixed(2)+'B':a>=1e6?'$'+(v/1e6).toFixed(1)+'M':a>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+Math.round(v);}
 function px(v){return v.toLocaleString('en-US',{maximumFractionDigits:v<1000?2:0});}
@@ -481,11 +558,10 @@ setInterval(poll,5000);poll();liveWs();
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.lmc.on .lmz').forEach(function(b){b.click();});});
 drawAll();
 </script><script>/* upbit-tools 테마 레이어 — 생성기 HTML 을 읽어 표시만 다듬는다(데이터는 건드리지 않음).
-   각 단계는 독립적으로 실패해도 원래 화면이 그대로 남도록 try 로 감싼다. */
+   각 단계는 독립적으로 실패해도 원래 화면이 그대로 남도록 try 로 감싼다.
+   2026-11 확정안: 실시간 점·요약 밴드·오늘 볼 것은 생성기가 직접 그린다 — 여기는 국면·변곡 카드만. */
 (function () {
   'use strict';
-  // 상단 띠를 고정 셀로 바꿀지 — 사용자 결정(2026-10-08)으로 흐르는 띠 유지. true 면 2) 단계 적용.
-  var STATIC_STRIP = false;
   var REG = /(bull|bear)-(high|low)vol/;
   var REG_COLOR = {
     'bull-highvol': '#3fbf7f', 'bull-lowvol': '#9fe2bf',
@@ -505,71 +581,7 @@ drawAll();
   }
   function run(name, fn) { try { fn(); } catch (e) { if (window.console) console.warn('[theme] ' + name, e); } }
 
-  // 1) 상태 배지: 생성 시각 기준 15분 넘으면 '지연'
-  run('live', function () {
-    var sub = document.querySelector('body > .sub'), st = document.getElementById('stale');
-    if (!sub || !st) return;
-    var gen = parseInt(st.dataset.gen, 10), pill = el('span', 'th-live');
-    function tick() {
-      var stale = Date.now() - gen > 15 * 60000;
-      pill.textContent = stale ? '갱신 지연' : '실시간';
-      pill.classList.toggle('stale', stale);
-    }
-    sub.insertBefore(pill, sub.firstChild);
-    tick(); setInterval(tick, 60000);
-  });
-
-  // 2) 흐르는 티커 → 고정 지표 셀
-  run('strip', function () {
-    if (!STATIC_STRIP) return;
-    var strip = document.querySelector('.strip'), track = strip && strip.querySelector('.track');
-    if (!track || !track.children.length) return;
-    var first = track.children[0];
-    while (track.children.length > 1) track.removeChild(track.lastElementChild);
-    var parts = first.innerHTML.split(' · '), frag = document.createDocumentFragment();
-    parts.forEach(function (h) {
-      if (!h.trim()) return;
-      var c = el('span', 'th-cell'); c.innerHTML = h.trim(); frag.appendChild(c);
-    });
-    first.innerHTML = ''; first.appendChild(frag);
-    strip.removeAttribute('onclick'); strip.removeAttribute('title');
-    strip.classList.add('th-static');
-  });
-
-  // 3) 국면 타일 → 판단 타일(배지)
-  run('band', function () {
-    document.querySelectorAll('.band > .bt').forEach(function (bt) {
-      var bl = bt.querySelector('.bl'), bv = bt.querySelector('.bv');
-      if (!bl || !bv || bl.textContent.trim() !== '국면') return;
-      var m = bv.textContent.match(REG); if (!m) return;
-      bt.classList.add('th-judge');
-      var b = el('span', 'th-badge th-' + m[0], m[0]);
-      bv.textContent = ''; bv.appendChild(b);
-    });
-  });
-
-  // 4) 오늘 볼 것 — 심각도 순 정렬 + 요약 칩
-  run('today', function () {
-    var card = cardByTitle('오늘 볼 것'); if (!card) return;
-    var rows = Array.prototype.slice.call(card.querySelectorAll(':scope > .kv'));
-    if (!rows.length) return;
-    var ORDER = { 's-crit': 0, 's-warn': 1, 's-info': 2, 's-ok': 3 }, n = { 's-crit': 0, 's-warn': 0, 's-info': 0, 's-ok': 0 };
-    rows.forEach(function (r) {
-      var s = r.querySelector('.neg') ? 's-crit' : r.querySelector('.warn') ? 's-warn' : r.querySelector('.pos') ? 's-ok' : 's-info';
-      r.classList.add(s); r.dataset.sev = ORDER[s]; n[s]++;
-      var body = el('span', 'th-body'); // 텍스트 노드가 flex 항목으로 쪼개지지 않게 한 덩어리로
-      while (r.firstChild) body.appendChild(r.firstChild);
-      r.appendChild(body);
-    });
-    rows.sort(function (a, b) { return a.dataset.sev - b.dataset.sev; })
-      .forEach(function (r) { card.appendChild(r); });
-    var chips = el('div', 'th-sev'), L = { 's-crit': '긴급', 's-warn': '주의', 's-info': '참고', 's-ok': '정상' };
-    Object.keys(L).forEach(function (k) { if (n[k]) chips.appendChild(el('span', k, L[k] + ' ' + n[k])); });
-    card.querySelector('h2').after(chips);
-    card.classList.add('th-today');
-  });
-
-  // 5) 국면·변곡 — 전이 기록을 타임라인으로, 지속 분포·다음 국면을 막대로
+  // 국면·변곡 — 전이 기록을 타임라인으로, 다음 국면 빈도를 막대로(지속 분포 막대는 생성기)
   run('regime', function () {
     var card = cardByTitle('국면·변곡'); if (!card) return;
     var kvs = Array.prototype.slice.call(card.querySelectorAll(':scope > .kv'));
@@ -619,31 +631,6 @@ drawAll();
         table.parentNode.insertBefore(det, table);
         det.appendChild(table);
         if (head) head.remove();
-      }
-    }
-
-    // 지속 분포: "중앙 25일 · 사분위 20~37일 · 최대 142일" + 상단 "N일째"
-    var dk = kvs.filter(function (k) { return /중앙\s*\d+일/.test(k.textContent); })[0];
-    var nowK = kvs.filter(function (k) { return /(\d+)일째/.test(k.textContent); })[0];
-    if (dk && nowK) {
-      var t = dk.textContent, med = +t.match(/중앙\s*(\d+)/)[1], q = t.match(/사분위\s*(\d+)\s*~\s*(\d+)/),
-        mx = +(t.match(/최대\s*(\d+)/) || [0, 0])[1], now = +nowK.textContent.match(/(\d+)일째/)[1];
-      if (q && mx) {
-        var top = Math.max(mx, now), pct = function (v) { return (v / top * 100).toFixed(1) + '%'; };
-        var box = el('div', 'th-dur'), tr = el('div', 'track');
-        tr.setAttribute('role', 'img');
-        tr.setAttribute('aria-label', '지속 기간 분포: 중앙 ' + med + '일, 사분위 ' + q[1] + '~' + q[2] + '일, 최대 ' + mx + '일, 지금 ' + now + '일');
-        var base = el('div', 'base'), iqr = el('div', 'iqr'), md = el('div', 'med'), nw = el('div', 'now'), mxe = el('div', 'max');
-        iqr.style.left = pct(+q[1]); iqr.style.width = pct(q[2] - q[1]);
-        md.style.left = pct(med); nw.style.left = 'calc(' + pct(now) + ' - 1.5px)';
-        [base, iqr, md, mxe, nw].forEach(function (x) { tr.appendChild(x); });
-        box.appendChild(tr);
-        var ax = el('div', 'dur-axis');
-        ax.appendChild(el('span', null, '0'));
-        ax.appendChild(el('span', null, '지금 ' + now + '일 · 중앙 ' + med + ' · IQR ' + q[1] + '–' + q[2]));
-        ax.appendChild(el('span', null, '최대 ' + mx + '일'));
-        box.appendChild(ax);
-        dk.after(box);
       }
     }
 
